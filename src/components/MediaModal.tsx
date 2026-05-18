@@ -72,6 +72,40 @@ const MediaModal: React.FC<MediaModalProps> = ({
     setDragX(0);
   };
 
+  // Handle touch start
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+  };
+
+  // Handle touch move
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    setDragX(diff);
+  };
+
+  // Handle touch end
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+    const threshold = 50; // Minimum distance for touch (more sensitive than mouse)
+
+    if (diff > threshold) {
+      // Swiped right - go to previous
+      onPrev();
+    } else if (diff < -threshold) {
+      // Swiped left - go to next
+      onNext();
+    }
+
+    setDragX(0);
+  };
+
   // Detect dark mode changes
   React.useEffect(() => {
     const checkDarkMode = () => {
@@ -196,6 +230,9 @@ const MediaModal: React.FC<MediaModalProps> = ({
                   onMouseDown={handleMouseDown}
                   onMouseMove={handleMouseMove}
                   onMouseUp={handleMouseUp}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
                   onMouseLeave={() => {
                     if (isDragging) {
                       setIsDragging(false);
