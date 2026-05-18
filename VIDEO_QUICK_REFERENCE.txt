@@ -1,0 +1,84 @@
+# 🎬 Quick Reference - Video Setup
+
+## Copy-Paste File Names
+
+Use **EXACTLY** these filenames for your videos:
+
+```
+elearning-demo.mp4
+elearning-thumb.jpg
+
+iot-demo.mp4
+iot-thumb.jpg
+
+dashboard-demo.mp4
+dashboard-thumb.jpg
+
+api-demo.mp4
+api-thumb.jpg
+
+weather-demo.mp4
+weather-thumb.jpg
+
+ecommerce-demo.mp4
+ecommerce-thumb.jpg
+```
+
+## Folder Path
+
+```
+public/videos/projects/
+```
+
+## Quick Commands
+
+**Create folder:**
+```powershell
+mkdir public/videos/projects
+```
+
+**Compress video (if needed):**
+```bash
+ffmpeg -i input.mov -c:v libx264 -crf 28 -c:a aac -b:a 128k output.mp4
+```
+
+**Extract thumbnail:**
+```bash
+ffmpeg -i video.mp4 -ss 00:00:05 -vf scale=640:360 -q:v 2 thumbnail.jpg
+```
+
+**Test locally:**
+```bash
+npm run dev
+```
+
+**Build for production:**
+```bash
+npm run build
+```
+
+## Video Specs
+
+- **Format:** MP4
+- **Size:** 10-30 MB each
+- **Duration:** 30-60 seconds
+- **Resolution:** 1920×1080 or 1280×720
+- **Thumbnail:** JPG, 640×360
+
+## What Happens
+
+1. Place videos in `public/videos/projects/`
+2. Hover over project card → Play button appears ▶️
+3. Click project → Modal opens with video player
+4. Video plays with full controls
+
+## Deploy
+
+```bash
+npm run build
+# Then upload dist/ to Netlify/Vercel
+```
+
+---
+
+**All set! Add your videos and you're done! 🎉**
