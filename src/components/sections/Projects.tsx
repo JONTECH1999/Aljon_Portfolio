@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MediaCarousel from '../MediaCarousel';
 import MediaModal from '../MediaModal';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -39,6 +39,24 @@ const Projects: React.FC = () => {
   const [mediaModalOpen, setMediaModalOpen] = useState(false);
   const [mediaModalProjectId, setMediaModalProjectId] = useState<number | null>(null);
   const [mediaModalIndex, setMediaModalIndex] = useState(0);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Detect if device supports touch
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        () =>
+          (typeof window !== 'undefined' &&
+            (navigator.maxTouchPoints > 0 || navigator.maxTouchPoints === undefined)) ||
+          window.matchMedia('(pointer: coarse)').matches
+      );
+    };
+    checkTouchDevice();
+    window.addEventListener('touchstart', () => setIsTouchDevice(true), { once: true });
+    return () => {
+      window.removeEventListener('touchstart', () => setIsTouchDevice(true));
+    };
+  }, []);
 
   const projects: Project[] = [
     {
@@ -880,7 +898,7 @@ const Projects: React.FC = () => {
                         <h3 className="text-lg font-bold mb-2 text-center" style={{ color: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
                           {project.title}
                         </h3>
-                        <p className="text-xs text-center opacity-70">Hover to flip for details →</p>
+                        <p className="text-xs text-center opacity-70">{isTouchDevice ? 'Swipe to flip for details' : 'Hover to flip for details'} →</p>
                       </div>
                     </div>
                   }
