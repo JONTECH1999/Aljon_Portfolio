@@ -10,9 +10,29 @@ interface FlipCardProps {
 
 const FlipCard: React.FC<FlipCardProps> = ({ front, back, className = '', flipDirection = 'horizontal' }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
 
-  // Touch support for mobile
-  const handleTouchStart = () => setIsFlipped((f) => !f);
+  // Handle touch start - record initial X position
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  // Handle swipe gesture on touch end
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const swipeDistance = Math.abs(touchEndX - touchStartX);
+    const SWIPE_THRESHOLD = 50; // Minimum swipe distance in pixels
+
+    // If swipe detected, flip the card
+    if (swipeDistance > SWIPE_THRESHOLD) {
+      setIsFlipped((f) => !f);
+    }
+  };
+
+  // Handle click - flip card on tap/click
+  const handleClick = () => {
+    setIsFlipped((f) => !f);
+  };
 
   const animateProps = flipDirection === 'horizontal' 
     ? { rotateY: isFlipped ? 180 : 0 }
@@ -29,7 +49,9 @@ const FlipCard: React.FC<FlipCardProps> = ({ front, back, className = '', flipDi
         cursor: 'pointer',
         WebkitTapHighlightColor: 'transparent',
       }}
-      onClick={handleTouchStart}
+      onClick={handleClick}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       whileHover={{ scale: 1.03 }}
