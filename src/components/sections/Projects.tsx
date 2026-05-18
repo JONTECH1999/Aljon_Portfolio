@@ -286,7 +286,7 @@ const Projects: React.FC = () => {
       description: 'Comprehensive multi-user medical management system featuring role-based access for Doctors, Nurses, and Admins with secure patient records and encrypted data management.',
       fullDescription: 'Built a web-based medical management system for Good Shepherd Children\'s Medical and Maternity Clinic as my thesis project. The goal was to make it easier to handle patient records, get billing right, and improve how the clinic runs day-to-day. Everything is secure and organized in one place.\n\nThe system has three types of users: Doctors, Nurses, and Admin staff. Each one gets access to what they need based on their job. This keeps patient data safe and makes sure only the right people can see or change sensitive information.\n\nDoctors can input patient diagnoses, update medical records, and review patient history to make better treatment decisions. Nurses handle patient registration for regular checkups, pediatric cases, and OB-GYN cases. They also collect the initial patient information before the doctor sees them. The admin side manages user accounts, handles system settings, and keeps an eye on the database.\n\nPatient records are stored in a structured database so retrieval is fast and everything is organized by patient history. Billing is integrated directly into the patient records, which cuts down on errors and makes financial tracking accurate.\n\nAuthentication is built in to protect patient data, and all sensitive information is handled securely. Role-based access means each person only sees what they\'re allowed to see.\n\nThe whole platform was built to speed things up in the clinic - less time processing patients, fewer billing mistakes, and better teamwork between staff. It gives everyone a single system to work from, so decisions are faster and patient management is more accurate.\n\nThis was built with PHP, MySQL, JavaScript, and HTML/CSS. It shows how to combine a working interface with solid backend database work for a real healthcare environment.',
       technologies: ['PHP', 'MySQL', 'JavaScript', 'HTML/CSS'],
-      image: '/images/clinic-nurse-login.png',
+      image: '/images/portfolio-screenshot-27.png',
       video: '/videos/projects/clinic-demo.mp4',
       videoThumbnail: '/videos/projects/clinic-thumb.png',
       github: '#',
@@ -483,12 +483,232 @@ const Projects: React.FC = () => {
       description: 'Dynamic portfolio showcasing skills and projects',
       fullDescription: 'Created a modern, fully responsive portfolio website featuring dynamic theme toggle, smooth animations, and interactive project showcase. Displays comprehensive project history, technical skills, and contact information. Built with React, TypeScript, and Tailwind CSS for optimal performance.',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      image: '/images/portfolio-main.jpg',
+      image: '/images/portfolio-screenshot-27.png',
       video: '/videos/projects/portfolio-demo.mp4',
-      videoThumbnail: '/videos/projects/portfolio-thumb.jpg',
-      github: '#',
-      live: '#',
+      videoThumbnail: '/videos/projects/portfolio-thumb.png',
+      github: 'https://github.com/Bilmark1009/AVAA-RMS.git',
+      live: 'https://avaa-rms.autopilotvirtual.com/?fbclid=IwY2xjawR30wVleHRuA2FlbQIxMABicmlkETEzM25rU1pLaFVreEsyd2Exc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtGiLFRAjyfh3ciqLxrQnW-x513wUkGYNqaf8SKrxvi1UZz7bp75AHeNJfYp_aem_uIJ6INbY08cHUHENnyganA',
+      youtube: 'https://www.youtube.com/watch?v=HO6Uzk6zJwE',
       category: 'React',
+      media: [
+        // ===== LOGIN FORM (CARD THUMBNAIL) =====
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-27.png',
+          thumbnail: '/images/portfolio-screenshot-27.png',
+          label: 'Login Form',
+          orientation: 'landscape',
+        },
+        // ===== ADMIN PANEL IMAGES =====
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-01.png',
+          thumbnail: '/images/portfolio-screenshot-01.png',
+          label: 'Admin Dashboard',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-02.png',
+          thumbnail: '/images/portfolio-screenshot-02.png',
+          label: 'Admin User Management',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-03.png',
+          thumbnail: '/images/portfolio-screenshot-03.png',
+          label: 'Admin Job Management',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-04.png',
+          thumbnail: '/images/portfolio-screenshot-04.png',
+          label: 'Admin Verifications',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-05.png',
+          thumbnail: '/images/portfolio-screenshot-05.png',
+          label: 'Admin Report View Messages',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-06.png',
+          thumbnail: '/images/portfolio-screenshot-06.png',
+          label: 'Admin Report View Job Posts',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-07.png',
+          thumbnail: '/images/portfolio-screenshot-07.png',
+          label: 'Admin Account Settings',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-08.png',
+          thumbnail: '/images/portfolio-screenshot-08.png',
+          label: 'Admin Notifications',
+          orientation: 'landscape',
+        },
+        // ===== JOBSEEKER PANEL IMAGES =====
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-09.png',
+          thumbnail: '/images/portfolio-screenshot-09.png',
+          label: 'Jobseeker Browse Jobs',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-10.png',
+          thumbnail: '/images/portfolio-screenshot-10.png',
+          label: 'Jobseeker Save Jobs',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-11.png',
+          thumbnail: '/images/portfolio-screenshot-11.png',
+          label: 'Jobseeker Application History',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-12.png',
+          thumbnail: '/images/portfolio-screenshot-12.png',
+          label: 'Jobseeker Job History',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-13.png',
+          thumbnail: '/images/portfolio-screenshot-13.png',
+          label: 'Jobseeker Messages',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-14.png',
+          thumbnail: '/images/portfolio-screenshot-14.png',
+          label: 'Jobseeker Settings',
+          orientation: 'landscape',
+        },
+        // ===== EMPLOYER PANEL IMAGES =====
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-15.png',
+          thumbnail: '/images/portfolio-screenshot-15.png',
+          label: 'Employer Dashboard',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-16.png',
+          thumbnail: '/images/portfolio-screenshot-16.png',
+          label: 'Employer User Management',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-17.png',
+          thumbnail: '/images/portfolio-screenshot-17.png',
+          label: 'Employer Job Management',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-18.png',
+          thumbnail: '/images/portfolio-screenshot-18.png',
+          label: 'Employer Interview',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-19.png',
+          thumbnail: '/images/portfolio-screenshot-19.png',
+          label: 'Employer Messages',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-20.png',
+          thumbnail: '/images/portfolio-screenshot-20.png',
+          label: 'Employer Account Settings',
+          orientation: 'landscape',
+        },
+        // ===== PUBLIC PAGES IMAGES =====
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-21.png',
+          thumbnail: '/images/portfolio-screenshot-21.png',
+          label: 'Home',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-22.png',
+          thumbnail: '/images/portfolio-screenshot-22.png',
+          label: 'About Us',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-23.png',
+          thumbnail: '/images/portfolio-screenshot-23.png',
+          label: 'How It Works',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-24.png',
+          thumbnail: '/images/portfolio-screenshot-24.png',
+          label: 'Services',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-25.png',
+          thumbnail: '/images/portfolio-screenshot-25.png',
+          label: 'FAQ',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-26.png',
+          thumbnail: '/images/portfolio-screenshot-26.png',
+          label: 'Register Now',
+          orientation: 'landscape',
+        },
+        // ===== DEBUGGING IMAGES =====
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-28.png',
+          thumbnail: '/images/portfolio-screenshot-28.png',
+          label: 'Debugging Sheet',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/portfolio-screenshot-29.png',
+          thumbnail: '/images/portfolio-screenshot-29.png',
+          label: 'Debugging Sheet 2',
+          orientation: 'landscape',
+        },
+        // ===== LANDSCAPE VIDEO =====
+        {
+          type: 'video',
+          src: '/videos/projects/portfolio-demo-video-01.webm',
+          thumbnail: '/images/portfolio-video-thumbnail.png',
+          label: 'Workflow Video',
+          orientation: 'landscape',
+        },
+      ],
     },
   ];
 
@@ -736,7 +956,7 @@ const Projects: React.FC = () => {
                               <FiExternalLink size={18} style={{ color: 'var(--color-primary)' }} />
                             </motion.a>
                           )}
-                          {(project.id === 3 || project.id === 4) && project.youtube && (
+                          {(project.id === 3 || project.id === 4 || project.id === 5 || project.id === 6) && project.youtube && (
                             <motion.a
                               href={project.youtube}
                               target="_blank"
@@ -923,7 +1143,7 @@ const Projects: React.FC = () => {
                       Live Demo
                     </motion.button>
                   )}
-                  {(selectedProject.id === 3 || selectedProject.id === 4) && selectedProject.youtube && (
+                  {(selectedProject.id === 3 || selectedProject.id === 4 || selectedProject.id === 5 || selectedProject.id === 6) && selectedProject.youtube && (
                     <motion.a
                       href={selectedProject.youtube}
                       target="_blank"
