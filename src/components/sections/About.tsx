@@ -6,46 +6,51 @@ const About: React.FC = () => {
   const skills = [
     {
       icon: FiCode,
-      name: 'Frontend Development',
-      description: 'React, TypeScript, Tailwind CSS, HTML/CSS, Framer Motion',
+      name: 'AI & Developer Tools',
+      description: 'GitHub Copilot, ChatGPT, Gemini, Claude, Prompt Engineering, MCP, AI-assisted debugging',
       color: 'from-blue-400 to-cyan-400',
     },
     {
       icon: FiDatabase,
-      name: 'Backend & Databases',
-      description: 'PHP, Java, MySQL, XAMPP, Apache NetBeans',
+      name: 'Web & Backend Development',
+      description: 'Laravel, PHP, React, Inertia.js, Node.js, RESTful APIs, CRUD, JavaScript, TypeScript',
       color: 'from-green-400 to-emerald-400',
     },
     {
       icon: FiCpu,
-      name: 'Full-Stack Development',
-      description: 'CRUD Systems, Role-Based Access, Multi-User Apps, Database Integration',
+      name: 'Embedded Systems & IoT',
+      description: 'ESP32, STM32, ESP-01, Arduino, C/C++, UART, SPI, I2C, Sensor Integration',
       color: 'from-purple-400 to-pink-400',
     },
     {
       icon: FiZap,
-      name: 'IoT & Hardware',
-      description: 'Arduino IDE, C++, IoT Sensors, Wearable Technology',
+      name: 'Databases & Architecture',
+      description: 'MySQL, PostgreSQL, SQL optimization, relational design, API and system documentation',
       color: 'from-yellow-400 to-orange-400',
     },
   ];
 
   const techStack = [
-    'React',
-    'TypeScript',
-    'JavaScript',
+    'Laravel',
     'PHP',
-    'Java',
-    'HTML/CSS',
+    'React',
+    'Inertia.js',
+    'Node.js',
+    'JavaScript',
+    'TypeScript',
     'Tailwind CSS',
+    'REST APIs',
     'MySQL',
-    'XAMPP',
-    'Apache NetBeans',
-    'Arduino IDE',
-    'C++',
+    'PostgreSQL',
+    'GitHub Copilot',
     'Git',
-    'Framer Motion',
-    'Vite',
+    'Docker',
+    'Postman',
+    'ESP32',
+    'STM32',
+    'Arduino',
+    'C/C++',
+    'VS Code',
     'Netlify',
   ];
 
@@ -87,13 +92,13 @@ const About: React.FC = () => {
         >
           <div className="space-y-6">
             <p className="text-lg text-slate-700 dark:text-white/80 leading-relaxed">
-              I'm a Computer Science student and Junior Web & Application Developer with hands-on experience building full-stack web applications, multi-user management systems, and IoT solutions. I specialize in React, TypeScript, PHP, and Java with a strong foundation in database design and backend architecture.
+              I am a Computer Science graduate and Full-Stack & Embedded Software Developer with hands-on experience building web applications, IoT systems, and AI-accelerated software workflows. I specialize in leveraging Generative AI tools such as GitHub Copilot, ChatGPT, Gemini, and Prompt Engineering to accelerate backend work, refactor code quickly, and resolve bugs efficiently.
             </p>
             <p className="text-lg text-slate-700 dark:text-white/80 leading-relaxed">
-              I've successfully delivered complex projects including medical management systems with role-based access control, academic CRUD systems with activity logging, and event management platforms with QR code integration. I combine clean code practices with modern UI/UX design to create solutions that are both functional and user-friendly.
+              My technical focus spans Laravel, PHP, React, RESTful API design, embedded firmware with ESP32 and STM32, and database-driven application architecture. I have built and maintained software solutions that combine business logic, hardware integration, and user-friendly interfaces for real-world use cases.
             </p>
             <p className="text-lg text-slate-700 dark:text-white/80 leading-relaxed">
-              Beyond web development, I'm passionate about IoT and hardware integration, exploring how embedded systems and wearable technology can improve accessibility and solve real-world problems. I'm committed to continuous learning and thrive in collaborative environments.
+              Beyond development, I enjoy leading technical work, documenting system architecture, and collaborating with teams to deliver reliable software. I am committed to continuous learning, practical problem solving, and building solutions that meaningfully improve accessibility and daily life.
             </p>
           </div>
 

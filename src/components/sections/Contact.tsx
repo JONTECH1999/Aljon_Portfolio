@@ -90,8 +90,14 @@ const Contact: React.FC = () => {
     {
       icon: FiMapPin,
       label: 'Location',
-      value: 'Caloocan City, Philippines',
+      value: 'Block 8 Lot 4 Manggahan Malaria, North Caloocan City',
       href: '#',
+    },
+    {
+      icon: FiSend,
+      label: 'Portfolio',
+      value: 'cute-marigold-6a6a30.netlify.app',
+      href: 'https://cute-marigold-6a6a30.netlify.app',
     },
   ];
 

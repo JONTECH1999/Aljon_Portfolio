@@ -1,35 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiAward, FiDownload } from 'react-icons/fi';
+import { FiBriefcase, FiAward } from 'react-icons/fi';
 import FlipCard from '../FlipCard';
 
 const Experience: React.FC = () => {
   const experiences = [
     {
       id: 1,
-      title: 'Junior Web & App Developer',
-      company: 'Freelance',
-      period: 'Jul 2023 - Present',
-      description: 'Developing full-stack web applications and CRUD systems. Built multi-user systems with role-based access control. Experience in React, PHP, JavaScript, and MySQL database management.',
-      skills: ['React', 'PHP', 'JavaScript', 'MySQL', 'Full Stack'],
+      title: 'Remote Backend Developer Intern',
+      company: 'Certicode',
+      period: 'January 2026 – April 2026',
+      description: 'Utilized GitHub Copilot, prompt engineering, and AI-assisted debugging to streamline backend development, refactor complex algorithms, and reduce testing time while developing PHP and JavaScript features in an Agile workflow. Designed and maintained RESTful APIs and relational database structures for efficient data processing operations.',
+      skills: ['PHP', 'JavaScript', 'MySQL', 'REST API', 'AI-Assisted Debugging', 'GitHub', 'Agile'],
       icon: FiBriefcase,
     },
     {
       id: 2,
-     title: 'Back-end Developer Intern (OJT)',
-      company: 'Certicode',
-      period: 'Jan 2026 - Apr 2026',
-      description: 'Completed a 200-hour intensive internship in the Developer Department. Worked on server-side logic, database management, and building robust backend systems under the guidance of senior engineers.',
-      skills: ['PHP', 'MySQL', 'Back-end Development', 'Testing', 'API Design'],
+      title: 'Lead Thesis Developer',
+      company: 'Blind Assistive Head Tech (BAHT)',
+      period: '2024 – 2025',
+      description: 'Led the design and development of a wearable assistive device using ESP32, ultrasonic sensors, vibration feedback, and GPS tracking. Implemented non-blocking sensor processing, EMA filtering, and a companion Android configuration app for real-world accessibility support.',
+      skills: ['ESP32', 'C++', 'IoT', 'Embedded Systems', 'Android', 'Hardware Integration', 'Accessibility'],
       icon: FiAward,
     },
     {
       id: 3,
-      title: 'Web Development Fundamentals',
-      company: 'IBM SkillsBuild',
-      period: '2024',
-      description: 'Demonstrated knowledge of web development concepts, processes to develop, deploy, and test websites. Gained expertise in tools and programming languages used by web developers, with a conceptual understanding of responsive design and modern development practices.',
-      skills: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'Front End Development', 'Back End Development', 'Testing', 'DevOps', 'Web Publishing', 'Visual Studio Code'],
+      title: 'Full-Stack & IoT Developer',
+      company: 'Independent Projects',
+      period: '2023 – 2025',
+      description: 'Built and integrated web dashboards, monitoring platforms, and embedded systems for real-time sensor data collection, project monitoring, and automation workflows. Worked across React, PHP, MySQL, and C/C++ for end-to-end software development.',
+      skills: ['React', 'PHP', 'MySQL', 'C/C++', 'IoT', 'Monitoring Dashboard', 'Full Stack'],
       icon: FiAward,
     },
   ];
@@ -172,8 +172,8 @@ const Experience: React.FC = () => {
               <div>
                 <h4 className="text-lg font-bold mb-1">Bachelor of Science in Computer Science</h4>
                 <p className="font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>Immaculada Concepcion College</p>
-                <p className="text-sm opacity-70 mb-3">2021 - Present</p>
-                <p className="text-sm leading-relaxed">Focused on web development, full-stack systems, and UI/UX design. Completed hands-on projects in React, PHP, Java, and database management.</p>
+                <p className="text-sm opacity-70 mb-3">Graduation Date: June 2026</p>
+                <p className="text-sm leading-relaxed">Focused on software engineering, embedded systems, web development, and data-driven application design. Completed thesis leadership, robotics competition participation, and technical project work integrating hardware and software solutions.</p>
               </div>
             </div>
           </div>
@@ -191,20 +191,21 @@ const Experience: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { 
-                title: 'Web Development Fundamentals', 
-                issuer: 'IBM SkillsBuild',
-                pdf: 'certificates/web-development-fundamentals.pdf'
+              {
+                title: '2nd Place at BSCS Symposium 2025 Robotics Competition',
+                issuer: 'Immaculada Concepcion College',
               },
-              { 
-                title: 'Information Technology Fundamentals', 
-                issuer: 'IBM SkillsBuild',
-                pdf: 'certificates/information-technology-fundamentals.pdf'
+              {
+                title: 'Outstanding Contribution Award',
+                issuer: 'BAHT / Thesis Project',
               },
-              { 
-                title: 'Certificate of Completion (OJT)', 
-                issuer: 'Certicode',
-                pdf: 'certificates/ojt-certificate-completion.pdf'
+              {
+                title: 'Thesis Team Leader',
+                issuer: 'Blind Assistive Head Tech',
+              },
+              {
+                title: 'DOST Funding Evaluation Submission',
+                issuer: 'PDAO Caloocan & NCDA',
               },
             ].map((cert) => (
               <div key={cert.title} className="glass-effect p-4 rounded-xl h-40 w-full flex flex-col justify-between">
@@ -214,14 +215,6 @@ const Experience: React.FC = () => {
                     <p className="font-semibold" style={{ color: 'var(--color-primary)' }}>{cert.title}</p>
                     <p className="text-sm opacity-70">{cert.issuer}</p>
                   </div>
-                  <a
-                    href={cert.pdf}
-                    download
-                    className="text-[var(--color-primary)] flex-shrink-0 mt-1 opacity-60 hover:opacity-100 transition-opacity"
-                    title="Download PDF"
-                  >
-                    <FiDownload size={18} />
-                  </a>
                 </div>
               </div>
             ))}

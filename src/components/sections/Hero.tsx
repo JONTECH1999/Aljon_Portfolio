@@ -4,7 +4,7 @@ import { FiChevronDown, FiGithub, FiLinkedin, FiFacebook, FiInstagram } from 're
 
 const Hero: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = 'Junior Web & App Developer';
+  const fullText = 'Full-Stack & Embedded Developer';
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -86,8 +86,7 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           className="text-lg md:text-xl text-slate-600 dark:text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          Crafting full-stack solutions with React, TypeScript, PHP, and Java. Specialized in building scalable web applications, 
-          multi-user management systems, and IoT solutions. Let's bring your vision to life with clean code and modern technology.
+          Computer Science graduate and Full-Stack & Embedded Software Developer building web applications, IoT systems, and AI-assisted workflows. I specialize in Laravel, React, PHP, C/C++, ESP32, REST APIs, and hardware-software integration with a strong focus on clean architecture and technical documentation.
         </motion.p>
 
         {/* CTA Buttons */}
