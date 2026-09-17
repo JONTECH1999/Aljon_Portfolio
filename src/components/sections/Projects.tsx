@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MediaCarousel from '../MediaCarousel';
 import MediaModal from '../MediaModal';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiX, FiPlay } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiX, FiPlay, FiInfo, FiImage } from 'react-icons/fi';
 import { FaFacebook, FaYoutube } from 'react-icons/fa';
-import FlipCard from '../FlipCard';
 
 interface ProjectMedia {
   type: 'image' | 'video';
@@ -39,24 +38,7 @@ const Projects: React.FC = () => {
   const [mediaModalOpen, setMediaModalOpen] = useState(false);
   const [mediaModalProjectId, setMediaModalProjectId] = useState<number | null>(null);
   const [mediaModalIndex, setMediaModalIndex] = useState(0);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  // Detect if device supports touch
-  useEffect(() => {
-    const checkTouchDevice = () => {
-      setIsTouchDevice(
-        () =>
-          (typeof window !== 'undefined' &&
-            (navigator.maxTouchPoints > 0 || navigator.maxTouchPoints === undefined)) ||
-          window.matchMedia('(pointer: coarse)').matches
-      );
-    };
-    checkTouchDevice();
-    window.addEventListener('touchstart', () => setIsTouchDevice(true), { once: true });
-    return () => {
-      window.removeEventListener('touchstart', () => setIsTouchDevice(true));
-    };
-  }, []);
 
   const projects: Project[] = [
     {
@@ -66,7 +48,7 @@ const Projects: React.FC = () => {
       fullDescription: 'Advanced wearable assistive technology designed to support blind and visually impaired individuals through intelligent obstacle detection, real-time sensory feedback, and voice-guided navigation. The system is developed in the form of a wearable headband that enhances environmental awareness by combining hardware innovation with smart assistive software, enabling users to navigate safely and independently in different environments.\n\nThe device utilizes four ultrasonic sensors strategically positioned at the front, left, right, and downward directions to continuously scan the surroundings and detect nearby obstacles, including ground-level hazards that are commonly difficult to identify using traditional mobility aids alone. These sensors can detect objects within an approximate range of up to 200 centimeters, allowing users to receive early warnings and improve reaction time while moving.\n\nTo provide intuitive navigation assistance, each sensor is paired with a dedicated vibration motor placed at the corresponding area of the headband. When an obstacle is detected, the user receives directional vibration feedback that indicates the exact location of the hazard. The vibration intensity dynamically changes based on the obstacle\'s distance — weak vibrations indicate distant objects, moderate vibrations signal approaching obstacles, and strong vibrations warn the user of immediate proximity.\n\nThe system also includes an optional voice-guided feedback feature that delivers real-time distance announcements and warning notifications. When obstacles are detected within critical range thresholds, the device activates continuous alert warnings to notify the user of immediate danger, further improving navigation safety and situational awareness.\n\nTo accommodate different user preferences and accessibility needs, the device supports multiple operating modes including vibration-only mode, voice-only mode, and combined vibration-and-voice mode. Additional customization settings such as voice volume and vibration intensity can also be adjusted and automatically stored within the system memory for consistent user experience after restarting the device.\n\nThe primary objective of the Blind Assistive Head Tech is to improve the independence, mobility, confidence, and safety of visually impaired individuals by providing an accessible wearable assistive solution. Rather than replacing traditional mobility tools such as white canes, the system is designed to complement them by offering enhanced multi-directional environmental awareness and earlier obstacle detection capabilities.\n\nThe project also undergoes usability and performance testing to evaluate obstacle detection accuracy, comfort during prolonged usage, effectiveness of sensory feedback, and overall user experience in real-world environments. Feedback gathered from testing is used to continuously improve the system\'s design, accessibility, and reliability.\n\nThis project represents one of the user\'s most advanced and innovative developments, combining IoT hardware integration, embedded systems programming, and intelligent assistive software into a single wearable technology solution focused on improving accessibility for the visually impaired community.',
       technologies: ['IoT', 'Sensors', 'Arduino IDE', 'C++', 'Android Studio', 'Java', 'Ultrasonic Sensors', 'Voice Feedback System', 'Vibration Feedback System', 'Wearable Assistive Technology'],
       image: '/images/blind-tech-main.png',
-      video: '/videos/projects/blind-tech-demo.webm',
+      video: '/videos/projects/blind-tech-video-landscape-thumb.webm',
       videoThumbnail: '/images/blind-tech-thumb.png',
       github: 'https://github.com/JONTECH1999/Blind-Assistive-Head-Tech',
       live: '#',
@@ -184,21 +166,21 @@ const Projects: React.FC = () => {
         // ===== PORTRAIT VIDEOS (Feature Demos) =====
         {
           type: 'video',
-          src: '/videos/projects/blind-tech-video-portrait-01-thumb.webm',
+          src: '/videos/projects/blind-tech-video-portrait-01-thumb.mp4',
           thumbnail: '/images/blind-tech-video-portrait-01-thumb.png',
           label: 'Voice Control Demo',
           orientation: 'portrait',
         },
         {
           type: 'video',
-          src: '/videos/projects/blind-tech-video-portrait-02-thumb.webm',
+          src: '/videos/projects/blind-tech-video-portrait-02-thumb.mp4',
           thumbnail: '/images/blind-tech-video-portrait-02-thumb.png',
           label: 'Navigation Feature',
           orientation: 'portrait',
         },
         {
           type: 'video',
-          src: '/videos/projects/blind-tech-video-portrait-03-thumb.webm',
+          src: '/videos/projects/blind-tech-video-portrait-03-thumb.mp4',
           thumbnail: '/images/blind-tech-video-portrait-03-thumb.png',
           label: 'User Experience Demo',
           orientation: 'portrait',
@@ -213,7 +195,7 @@ const Projects: React.FC = () => {
       technologies: ['React', 'JavaScript', 'PHP', 'MySQL', 'Arduino IDE', 'C++', 'IoT Sensors', 'GPS Module', 'Ultrasonic Sensors', 'Camera Integration', 'Web-Based Monitoring System'],
       image: '/images/almka-main.png',
       video: '/videos/projects/almka-demo.webm',
-      videoThumbnail: '/videos/projects/almka-thumb.png',
+      videoThumbnail: '/images/almka-thumb.png',
       github: 'https://github.com/JONTECH1999/ALMKA.git',
       live: '#',
       facebook: 'https://web.facebook.com/iccbscsdept/posts/pfbid0bXhWwsTzar47PTA9xPqA6S18p4Yxh25ubRM6SHSuojMsEfKeAV7Cy3YM5zgqW3gBl',
@@ -779,7 +761,7 @@ const Projects: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="section-title">Featured Projects</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#c29f74] to-[#dfbe95] mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Filter Buttons */}
@@ -816,208 +798,218 @@ const Projects: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="wait">
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                variants={itemVariants}
-                exit="exit"
-                layoutId={`project-${project.id}`}
-                className="h-80"
-              >
-                <FlipCard
-                  front={
-                    <div 
-                      className="glass-effect rounded-xl overflow-hidden h-full w-full flex flex-col justify-between p-6 cursor-pointer"
-                      onClick={() => {
-                        if (project.media && project.media.length > 0) {
-                          setMediaModalProjectId(project.id);
-                          setMediaModalIndex(0);
-                          setMediaModalOpen(true);
-                        }
+            {filteredProjects.map((project) => {
+              const hasVideo = Boolean(project.video || project.media?.some(m => m.type === 'video'));
+              const mediaCount = project.media?.length || 0;
+              const previewImage = project.videoThumbnail || project.image || project.media?.[0]?.src || '/images/placeholder.png';
+
+              return (
+                <motion.div
+                  key={project.id}
+                  variants={itemVariants}
+                  exit="exit"
+                  layout
+                  whileHover={{ y: -8 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                  className="glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-[#c29f74]/40 hover:shadow-2xl hover:shadow-[#c29f74]/10 flex flex-col justify-between transition-colors duration-300 group"
+                >
+                  {/* Top Media Preview Container */}
+                  <div className="relative aspect-video w-full overflow-hidden bg-slate-900/60">
+                    <img
+                      src={previewImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/images/placeholder.png';
                       }}
-                    >
-                      {/* Media Carousel or Image */}
-                      <div 
-                        className="relative h-48 -m-6 mb-4 overflow-hidden rounded-t-xl bg-black/20 group pointer-events-none"
-                      >
-                        {project.media && project.media.length > 0 ? (
-                          <>
-                            <div className="opacity-90 group-hover:opacity-100 transition-opacity">
-                              <MediaCarousel 
-                                media={project.media} 
-                                title={project.title}
-                              />
-                            </div>
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all flex items-center justify-center pointer-events-none">
-                              <motion.div
-                                initial={{ opacity: 0 }}
-                                whileHover={{ opacity: 1 }}
-                                className="text-white text-sm font-medium flex items-center gap-2"
-                              >
-                                <FiPlay size={16} /> Click to expand
-                              </motion.div>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <img
-                              src={project.videoThumbnail || project.image || '/images/placeholder.png'}
-                              alt={project.title}
-                              className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = '/images/placeholder.png';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/40 hover:bg-black/60 transition-colors"></div>
-                            
-                            {/* Play Button Overlay */}
-                            {project.video && (
-                              <motion.div
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileHover={{ opacity: 1, scale: 1 }}
-                                className="absolute inset-0 flex items-center justify-center"
-                              >
-                                <motion.div
-                                  whileHover={{ scale: 1.1 }}
-                                  whileTap={{ scale: 0.95 }}
-                                  className="w-16 h-16 rounded-full bg-[var(--color-primary)] flex items-center justify-center shadow-2xl"
-                                  style={{
-                                    boxShadow: '0 0 30px var(--color-primary)',
-                                  }}
-                                >
-                                  <FiPlay size={28} className="text-white ml-1" />
-                                </motion.div>
-                              </motion.div>
-                            )}
-                          </>
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#b88755]/90 text-white shadow-lg backdrop-blur-md">
+                        {project.category}
+                      </span>
+
+                      {mediaCount > 1 && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setMediaModalProjectId(project.id);
+                            setMediaModalIndex(0);
+                            setMediaModalOpen(true);
+                          }}
+                          className="pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-black/60 hover:bg-black/80 text-white/90 backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                          title="View Media Gallery"
+                        >
+                          <FiImage size={12} />
+                          <span>{mediaCount} items</span>
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Prominent Center Play Button if Video Available */}
+                    {hasVideo && (
+                      <div className="absolute inset-0 flex items-center justify-center z-10">
+                        <motion.button
+                          type="button"
+                          whileHover={{ scale: 1.15 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => {
+                            if (project.media && project.media.length > 0) {
+                              const vidIdx = project.media.findIndex(m => m.type === 'video');
+                              setMediaModalProjectId(project.id);
+                              setMediaModalIndex(vidIdx >= 0 ? vidIdx : 0);
+                              setMediaModalOpen(true);
+                            } else {
+                              setSelectedProject(project);
+                            }
+                          }}
+                          className="w-14 h-14 rounded-full bg-gradient-to-r from-[#c29f74] to-[#a88154] flex items-center justify-center text-white shadow-xl shadow-[#c29f74]/30 border-2 border-white/80 group-hover:shadow-[#c29f74]/60 transition-all cursor-pointer"
+                          aria-label="Play Video Demo"
+                        >
+                          <FiPlay size={22} className="ml-1 text-white" />
+                        </motion.button>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-[#a88154] dark:group-hover:text-[#dfbe95] transition-colors line-clamp-1">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 leading-relaxed mb-4 line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-1.5 mb-5">
+                        {project.technologies.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="text-[11px] font-medium px-2 py-0.5 rounded-md"
+                            style={{
+                              backgroundColor: 'rgba(194, 159, 116, 0.12)',
+                              color: 'var(--color-primary)',
+                              border: '1px solid rgba(194, 159, 116, 0.25)',
+                            }}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 4 && (
+                          <span className="text-[11px] font-medium px-1.5 py-0.5 rounded-md text-slate-500 dark:text-white/40">
+                            +{project.technologies.length - 4} more
+                          </span>
                         )}
                       </div>
+                    </div>
 
-                      {/* Front content hint */}
-                      <div className="flex-1 flex flex-col justify-end">
-                        <h3 className="text-lg font-bold mb-2 text-center" style={{ color: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
-                          {project.title}
-                        </h3>
-                        <p className="text-xs text-center opacity-70">{isTouchDevice ? 'Swipe to flip for details' : 'Hover to flip for details'} →</p>
+                    {/* Interactive Action Bar */}
+                    <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between gap-2">
+                      <motion.button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold bg-[#b88755] hover:bg-[#a88154] text-white shadow-md shadow-[#c29f74]/20 transition-all cursor-pointer"
+                      >
+                        <FiInfo size={14} />
+                        <span>Case Study</span>
+                      </motion.button>
+
+                      {hasVideo && (
+                        <motion.button
+                          type="button"
+                          onClick={() => {
+                            if (project.media && project.media.length > 0) {
+                              const vidIdx = project.media.findIndex(m => m.type === 'video');
+                              setMediaModalProjectId(project.id);
+                              setMediaModalIndex(vidIdx >= 0 ? vidIdx : 0);
+                              setMediaModalOpen(true);
+                            } else {
+                              setSelectedProject(project);
+                            }
+                          }}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-1.5 py-2 px-2.5 rounded-lg text-xs font-semibold text-[#a88154] dark:text-[#dfbe95] bg-[#c29f74]/10 hover:bg-[#c29f74]/20 border border-[#c29f74]/30 transition-all cursor-pointer"
+                          title="Watch Demo Video"
+                        >
+                          <FiPlay size={13} />
+                          <span className="hidden sm:inline">Demo</span>
+                        </motion.button>
+                      )}
+
+                      {/* Icon Links */}
+                      <div className="flex items-center gap-1">
+                        {project.github && project.github !== '#' && (
+                          <motion.a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.15, y: -2 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="p-2 rounded-lg text-slate-600 dark:text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+                            title="GitHub Repository"
+                          >
+                            <FiGithub size={16} />
+                          </motion.a>
+                        )}
+
+                        {project.live && project.live !== '#' && (
+                          <motion.a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.15, y: -2 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="p-2 rounded-lg text-[#c29f74] hover:text-[#dfbe95] hover:bg-white/10 transition-colors"
+                            title="Live Demo Website"
+                          >
+                            <FiExternalLink size={16} />
+                          </motion.a>
+                        )}
+
+                        {project.youtube && (
+                          <motion.a
+                            href={project.youtube}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.15, y: -2 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="p-2 rounded-lg text-red-500 hover:text-red-400 hover:bg-white/10 transition-colors"
+                            title="YouTube Video"
+                          >
+                            <FaYoutube size={16} />
+                          </motion.a>
+                        )}
+
+                        {project.facebook && (
+                          <motion.a
+                            href={project.facebook}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.15, y: -2 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="p-2 rounded-lg text-blue-500 hover:text-blue-400 hover:bg-white/10 transition-colors"
+                            title="Facebook Post"
+                          >
+                            <FaFacebook size={16} />
+                          </motion.a>
+                        )}
                       </div>
                     </div>
-                  }
-                  back={
-                    <div 
-                      className="glass-effect rounded-xl overflow-hidden h-full w-full flex flex-col p-4 cursor-pointer"
-                      onClick={() => {
-                        if (project.media && project.media.length > 0) {
-                          setMediaModalProjectId(project.id);
-                          setMediaModalIndex(0);
-                          setMediaModalOpen(true);
-                        }
-                      }}
-                    >
-                      {/* Back Content */}
-                      <div className="flex-1 flex flex-col justify-between min-h-0">
-                        <div className="overflow-y-auto pr-2">
-                          <h3 className="text-base font-bold mb-2" style={{ color: 'var(--color-primary)' }}>
-                            {project.title}
-                          </h3>
-                          <p className="text-xs mb-3 opacity-90 leading-tight whitespace-pre-wrap">
-                            {project.fullDescription}
-                          </p>
-
-                          {/* Technologies */}
-                          <div className="flex flex-wrap gap-1 mb-2">
-                            {project.technologies.map((tech) => (
-                              <span
-                                key={tech}
-                                className="text-xs px-1.5 py-0.5 rounded transition-all"
-                                style={{
-                                  backgroundColor: `var(--color-primary)20`,
-                                  color: 'var(--color-primary)',
-                                }}
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Links */}
-                        <div className="flex gap-2 justify-center mt-2 flex-shrink-0">
-                          {project.id !== 3 && (
-                            <motion.a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              whileHover={{ scale: 1.2 }}
-                              whileTap={{ scale: 0.9 }}
-                              className="p-1.5 rounded-lg transition-all"
-                              style={{
-                                backgroundColor: `var(--color-primary)20`,
-                              }}
-                              onClick={(e) => e.stopPropagation()}
-                              title="GitHub"
-                            >
-                              <FiGithub size={18} style={{ color: 'var(--color-primary)' }} />
-                            </motion.a>
-                          )}
-                          {project.id !== 1 && project.id !== 2 && project.id !== 3 && project.id !== 4 && (
-                            <motion.a
-                              href={project.live}
-                              whileHover={{ scale: 1.2 }}
-                              whileTap={{ scale: 0.9 }}
-                              className="p-1.5 rounded-lg transition-all"
-                              style={{
-                                backgroundColor: `var(--color-primary)20`,
-                              }}
-                              onClick={(e) => e.stopPropagation()}
-                              title="Live Demo"
-                            >
-                              <FiExternalLink size={18} style={{ color: 'var(--color-primary)' }} />
-                            </motion.a>
-                          )}
-                          {(project.id === 3 || project.id === 4 || project.id === 5 || project.id === 6) && project.youtube && (
-                            <motion.a
-                              href={project.youtube}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              whileHover={{ scale: 1.2 }}
-                              whileTap={{ scale: 0.9 }}
-                              className="p-1.5 rounded-lg transition-all"
-                              style={{
-                                backgroundColor: `var(--color-primary)20`,
-                              }}
-                              onClick={(e) => e.stopPropagation()}
-                              title="YouTube"
-                            >
-                              <FaYoutube size={18} style={{ color: 'var(--color-primary)' }} />
-                            </motion.a>
-                          )}
-                          {project.facebook && (
-                            <motion.a
-                              href={project.facebook}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              whileHover={{ scale: 1.2 }}
-                              whileTap={{ scale: 0.9 }}
-                              className="p-1.5 rounded-lg transition-all"
-                              style={{
-                                backgroundColor: `var(--color-primary)20`,
-                              }}
-                              onClick={(e) => e.stopPropagation()}
-                              title="Facebook Post"
-                            >
-                              <FaFacebook size={18} style={{ color: 'var(--color-primary)' }} />
-                            </motion.a>
-                          )}
-                        </div>
-                      </div>
-
-                      <p className="text-xs text-center opacity-60 mt-1 flex-shrink-0">Click See more</p>
-                    </div>
-                  }
-                  className="group cursor-pointer"
-                />
-              </motion.div>
-            ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
@@ -1072,10 +1064,10 @@ const Projects: React.FC = () => {
                     <video
                       controls
                       autoPlay
+                      playsInline
                       poster={selectedProject.videoThumbnail || selectedProject.image}
-                      className="w-full h-auto max-h-96 object-cover rounded-lg shadow-2xl"
+                      className="w-full h-auto max-h-96 object-contain rounded-lg shadow-2xl bg-black"
                       controlsList="nodownload"
-                      onError={() => alert('Video failed to load. Please check the file path.')}
                     >
                       {selectedProject.video?.endsWith('.webm') && (
                         <source src={selectedProject.video} type="video/webm" />
@@ -1102,25 +1094,25 @@ const Projects: React.FC = () => {
 
                 {/* Title and Category */}
                 <div className="mb-6">
-                  <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">{selectedProject.title}</h2>
-                  <div className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 rounded text-sm">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2">{selectedProject.title}</h2>
+                  <div className="inline-block px-3 py-1 bg-[#c29f74]/15 text-[#a88154] dark:text-[#dfbe95] rounded-full text-xs sm:text-sm font-semibold border border-[#c29f74]/25">
                     {selectedProject.category}
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-slate-700 dark:text-white/80 text-lg mb-8 leading-relaxed">
+                <p className="text-slate-700 dark:text-white/80 text-base sm:text-lg mb-8 leading-relaxed whitespace-pre-wrap">
                   {selectedProject.fullDescription}
                 </p>
 
                 {/* Technologies */}
                 <div className="mb-8">
-                  <h3 className="text-slate-900 dark:text-white font-semibold mb-4">Technologies Used</h3>
+                  <h3 className="text-slate-900 dark:text-white font-semibold mb-4 text-base sm:text-lg">Technologies Used</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-600 dark:text-indigo-300 rounded"
+                        className="px-3 py-1 bg-[#c29f74]/10 text-[#a88154] dark:text-[#dfbe95] rounded-lg text-xs sm:text-sm font-medium border border-[#c29f74]/20"
                       >
                         {tech}
                       </span>
@@ -1130,36 +1122,31 @@ const Projects: React.FC = () => {
 
                 {/* Links */}
                 <div className="flex gap-4 flex-wrap">
-                  {selectedProject.id !== 3 && (
+                  {selectedProject.github && selectedProject.github !== '#' && (
                     <motion.a
                       href={selectedProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="btn-primary flex items-center gap-2"
+                      className="btn-primary flex items-center gap-2 text-sm sm:text-base"
                     >
                       <FiGithub size={20} />
                       View on GitHub
                     </motion.a>
                   )}
-                  {selectedProject.id !== 1 && selectedProject.id !== 2 && selectedProject.id !== 3 && selectedProject.id !== 4 && (
-                    <motion.button
-                      type="button"
+                  {selectedProject.live && selectedProject.live !== '#' && (
+                    <motion.a
+                      href={selectedProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="btn-secondary flex items-center gap-2"
-                      onClick={() => {
-                        // If there is a video in the media array, jump to it
-                        if (selectedProject.media) {
-                          const vidIdx = selectedProject.media.findIndex(m => m.type === 'video');
-                          setCarouselIndex(vidIdx >= 0 ? vidIdx : 0);
-                        }
-                      }}
+                      className="btn-secondary flex items-center gap-2 text-sm sm:text-base"
                     >
                       <FiExternalLink size={20} />
-                      Live Demo
-                    </motion.button>
+                      Live Demo Website
+                    </motion.a>
                   )}
                   {(selectedProject.id === 3 || selectedProject.id === 4 || selectedProject.id === 5 || selectedProject.id === 6) && selectedProject.youtube && (
                     <motion.a

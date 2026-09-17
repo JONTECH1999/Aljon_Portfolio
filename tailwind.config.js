@@ -8,11 +8,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-bg': '#0a0e27',
-        'dark-card': '#1a1f3a',
-        'dark-hover': '#252d45',
-        'accent': '#6366f1',
-        'accent-light': '#818cf8',
+        'dark-bg': '#14110f',
+        'dark-card': '#1c1714',
+        'dark-hover': '#26201b',
+        'accent': '#c29f74',
+        'accent-light': '#dfbe95',
+        beige: {
+          50: '#fdfbf7',
+          100: '#f8f4ec',
+          200: '#efe6d5',
+          300: '#e1d2b9',
+          400: '#d1b997',
+          500: '#c29f74',
+          600: '#a88154',
+          700: '#8c673d',
+          800: '#6f502f',
+          900: '#43301c',
+          950: '#23180d',
+        },
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',

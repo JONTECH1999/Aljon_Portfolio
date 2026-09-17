@@ -54,13 +54,13 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           className="relative mb-10 w-32 h-32 md:w-48 md:h-48 mx-auto group"
         >
-          <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-2xl animate-pulse" />
-          <div className="relative w-full h-full rounded-2xl border-2 border-indigo-500/30 glass-effect p-2 rotate-3 group-hover:rotate-0 transition-transform duration-500">
+          <div className="absolute inset-0 bg-[#c29f74]/25 rounded-full blur-2xl animate-pulse" />
+          <div className="relative w-full h-full rounded-2xl border-2 border-[#c29f74]/35 glass-effect p-2 rotate-3 group-hover:rotate-0 transition-transform duration-500">
              <img 
                 src="/images/profile.jpg" 
                 alt="Aljon"
                 className="w-full h-full object-cover rounded-xl shadow-2xl"
-                onError={(e) => (e.currentTarget.src = "https://ui-avatars.com/api/?name=Aljon&background=6366f1&color=fff")}
+                onError={(e) => (e.currentTarget.src = "https://ui-avatars.com/api/?name=Aljon&background=c29f74&color=fff")}
               />
           </div>
         </motion.div>
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
 
         {/* Typewriter effect */}
         <motion.div variants={itemVariants} className="mb-8">
-          <h2 className="text-2xl md:text-4xl text-indigo-600 dark:text-indigo-400 font-semibold min-h-16">
+          <h2 className="text-2xl md:text-4xl text-[#a88154] dark:text-[#dfbe95] font-semibold min-h-16">
             {displayedText}
             <span className="animate-pulse">|</span>
           </h2>
@@ -96,9 +96,9 @@ const Hero: React.FC = () => {
         >
           <motion.a
             href="#projects"
-            whileHover={{ scale: 1.08, y: -3 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="btn-primary shadow-lg shadow-indigo-500/30"
+            className="btn-primary"
           >
             View My Projects
           </motion.a>
@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex justify-center"
         >
-          <a href="#about" className="text-slate-600 dark:text-white/60 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+          <a href="#about" className="text-slate-600 dark:text-white/60 hover:text-[#c29f74] dark:hover:text-[#dfbe95] transition-colors">
             <FiChevronDown size={32} />
           </a>
         </motion.div>
@@ -173,12 +173,12 @@ const Hero: React.FC = () => {
 
       {/* Floating elements */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl"
+        className="absolute top-20 left-10 w-32 h-32 bg-[#c29f74]/15 rounded-full blur-3xl"
         animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute bottom-20 right-10 w-40 h-40 bg-[#dfbe95]/15 rounded-full blur-3xl"
         animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
         transition={{ duration: 10, repeat: Infinity }}
       />

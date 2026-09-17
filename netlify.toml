@@ -1,7 +1,9 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  node_version = "20"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 # Redirects for Single Page Application (React Router)
 [[redirects]]

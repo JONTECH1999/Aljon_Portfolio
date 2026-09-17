@@ -91,6 +91,8 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ media, title, initialInde
                 <video
                   controls
                   autoPlay
+                  playsInline
+                  muted
                   poster={currentItem.thumbnail}
                   className={`${getMediaClasses(currentItem)} bg-white dark:bg-black`}
                   controlsList="nodownload"
@@ -142,8 +144,8 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ media, title, initialInde
                 whileTap={{ scale: 0.95 }}
                 className={`relative rounded-lg overflow-hidden transition-all duration-300 group ${
                   idx === current 
-                    ? 'ring-2 ring-indigo-500 shadow-lg' 
-                    : 'ring-1 ring-slate-300 dark:ring-slate-600 hover:ring-indigo-400'
+                    ? 'ring-2 ring-[#c29f74] shadow-lg shadow-[#c29f74]/20' 
+                    : 'ring-1 ring-slate-300 dark:ring-slate-700 hover:ring-[#dfbe95]'
                 }`}
                 style={{
                   width: '80px',
@@ -178,7 +180,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ media, title, initialInde
                 {idx === current && (
                   <motion.div
                     layoutId="activeThumb"
-                    className="absolute inset-0 border-2 border-indigo-500 rounded-lg pointer-events-none"
+                    className="absolute inset-0 border-2 border-[#c29f74] rounded-lg pointer-events-none"
                   />
                 )}
               </motion.button>

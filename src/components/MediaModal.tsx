@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight, FiX, FiPlay } from 'react-icons/fi';
-import { useTheme, COLOR_THEMES } from '../context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 
 interface MediaItem {
   type: 'image' | 'video';
@@ -30,9 +30,7 @@ const MediaModal: React.FC<MediaModalProps> = ({
   onNext,
   title,
 }) => {
-  const [isDarkMode, setIsDarkMode] = React.useState(false);
-  const { theme } = useTheme();
-  const themeConfig = COLOR_THEMES[theme];
+  const { isDarkMode, themeConfig } = useTheme();
   const currentItem = media[currentIndex];
   const total = media.length;
   const [dragX, setDragX] = React.useState(0);
@@ -105,21 +103,6 @@ const MediaModal: React.FC<MediaModalProps> = ({
 
     setDragX(0);
   };
-
-  // Detect dark mode changes
-  React.useEffect(() => {
-    const checkDarkMode = () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      setIsDarkMode(isDark);
-    };
-    
-    checkDarkMode();
-    
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   // Handle scroll wheel to change media
   React.useEffect(() => {
@@ -286,47 +269,36 @@ const MediaModal: React.FC<MediaModalProps> = ({
                   )}
                 </motion.div>
 
-                {/* Left Click Zone */}
-                <motion.button
-                  onClick={() => !isDragging && onPrev()}
-                  className="absolute left-0 top-0 bottom-0 w-1/4 cursor-pointer group z-10"
-                  style={{
-                    background: 'transparent',
-                    border: 'none',
-                    padding: 0,
-                  }}
-                  whileHover={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}
-                  aria-label="Previous"
-                >
-                  <motion.div 
-                    className="flex items-center justify-start pl-4 h-full opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ x: -20 }}
-                    whileHover={{ x: -30 }}
-                  >
-                    <FiChevronLeft size={32} style={{ color: isDarkMode ? '#ffffff' : '#1e1b4b' }} />
-                  </motion.div>
-                </motion.button>
+                {/* Floating Left/Right Navigation Arrows (Non-blocking) */}
+                {total > 1 && (
+                  <>
+                    <motion.button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!isDragging) onPrev();
+                      }}
+                      whileHover={{ scale: 1.1, x: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-effect bg-black/40 hover:bg-black/70 text-white flex items-center justify-center shadow-xl border border-white/20 z-20 transition-all cursor-pointer"
+                      aria-label="Previous Media"
+                    >
+                      <FiChevronLeft size={24} />
+                    </motion.button>
 
-                {/* Right Click Zone */}
-                <motion.button
-                  onClick={() => !isDragging && onNext()}
-                  className="absolute right-0 top-0 bottom-0 w-1/4 cursor-pointer group z-10"
-                  style={{
-                    background: 'transparent',
-                    border: 'none',
-                    padding: 0,
-                  }}
-                  whileHover={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}
-                  aria-label="Next"
-                >
-                  <motion.div 
-                    className="flex items-center justify-end pr-4 h-full opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ x: 20 }}
-                    whileHover={{ x: 30 }}
-                  >
-                    <FiChevronRight size={32} style={{ color: isDarkMode ? '#ffffff' : '#1e1b4b' }} />
-                  </motion.div>
-                </motion.button>
+                    <motion.button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!isDragging) onNext();
+                      }}
+                      whileHover={{ scale: 1.1, x: 2 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-effect bg-black/40 hover:bg-black/70 text-white flex items-center justify-center shadow-xl border border-white/20 z-20 transition-all cursor-pointer"
+                      aria-label="Next Media"
+                    >
+                      <FiChevronRight size={24} />
+                    </motion.button>
+                  </>
+                )}
               </div>
 
               {/* Navigation */}

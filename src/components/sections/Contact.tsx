@@ -138,7 +138,7 @@ const Contact: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="section-title">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#c29f74] to-[#dfbe95] mx-auto rounded-full"></div>
           <p className="text-slate-600 dark:text-white/70 text-lg mt-4 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from you!
           </p>
@@ -160,15 +160,15 @@ const Contact: React.FC = () => {
                 variants={itemVariants}
                 whileHover={{ x: 8, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="glass-effect w-full p-6 rounded-xl hover:border-indigo-500/50 transition-all group cursor-pointer"
+                className="glass-effect w-full p-6 rounded-xl hover:border-[#c29f74]/50 transition-all group cursor-pointer"
               >
                 <div className="flex items-start gap-4 w-full">
-                  <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-[#c29f74]/15 to-[#dfbe95]/15 text-[#a88154] dark:text-[#dfbe95] group-hover:scale-110 transition-transform flex-shrink-0">
                     <info.icon size={24} />
                   </div>
                   <div className="min-w-0 w-full">
                     <h4 className="text-slate-900 dark:text-white font-semibold mb-1">{info.label}</h4>
-                    <p className="text-slate-700 dark:text-white/80 break-words hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors w-full">
+                    <p className="text-slate-700 dark:text-white/80 break-words hover:text-[#c29f74] dark:hover:text-[#dfbe95] transition-colors w-full">
                       {info.value}
                     </p>
                   </div>
@@ -200,7 +200,7 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     placeholder="ex. Aljon Alonzo"
-                    className="w-full px-4 py-3 bg-slate-50/50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/50 focus:outline-none focus:border-indigo-600 dark:focus:border-indigo-400 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-50/50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/50 focus:outline-none focus:border-[#c29f74] dark:focus:border-[#dfbe95] focus:ring-2 focus:ring-[#c29f74]/20 transition-all"
                   />
                 </motion.div>
 
@@ -222,7 +222,7 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     placeholder="ex. aljonrisasalonzo@gmail.com"
-                    className="w-full px-4 py-3 bg-slate-50/50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/50 focus:outline-none focus:border-indigo-600 dark:focus:border-indigo-400 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-50/50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/50 focus:outline-none focus:border-[#c29f74] dark:focus:border-[#dfbe95] focus:ring-2 focus:ring-[#c29f74]/20 transition-all"
                   />
                 </motion.div>
 
@@ -244,7 +244,7 @@ const Contact: React.FC = () => {
                     required
                     placeholder="Tell me about your project..."
                     rows={6}
-                    className="w-full px-4 py-3 bg-slate-50/50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/50 focus:outline-none focus:border-indigo-600 dark:focus:border-indigo-400 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-slate-50/50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/50 focus:outline-none focus:border-[#c29f74] dark:focus:border-[#dfbe95] focus:ring-2 focus:ring-[#c29f74]/20 transition-all resize-none"
                   ></textarea>
                 </motion.div>
 

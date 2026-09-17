@@ -114,15 +114,14 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
                 <motion.a
                   key={link.label}
                   href={link.href}
-                  whileHover={{ scale: 1.1, y: -5 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -4 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 rounded-lg glass-effect border transition-all duration-300"
-                  style={{
-                    borderColor: isDarkMode ? 'var(--dark-border)' : 'var(--light-border)',
-                  }}
+                  className="p-2.5 rounded-lg glass-effect border border-slate-200 dark:border-white/10 hover:border-[#c29f74]/50 hover:text-[#c29f74] transition-all duration-300 text-slate-700 dark:text-white/80"
                   aria-label={link.label}
                 >
-                  <link.icon size={20} />
+                  <link.icon size={18} />
                 </motion.a>
               ))}
             </div>
@@ -131,12 +130,11 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
 
         {/* Bottom */}
         <div 
-          className="border-t pt-8 transition-colors duration-300"
-          style={{
-            borderTopColor: isDarkMode ? 'var(--dark-border)' : 'var(--light-border)',
-          }}
+          className="border-t border-slate-200 dark:border-white/10 pt-8"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-white/50">
+            <p>© {new Date().getFullYear()} Aljon Alonzo. All rights reserved.</p>
+            <p>Crafted with precision & modern UI/UX design</p>
           </div>
         </div>
       </div>

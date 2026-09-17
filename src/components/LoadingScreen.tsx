@@ -47,7 +47,7 @@ const LoadingScreen: React.FC = () => {
     <div 
       className="fixed inset-0 flex items-center justify-center z-50 transition-colors duration-300"
       style={{
-        backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
+        backgroundColor: isDarkMode ? '#14110f' : '#fbf9f4',
       }}
     >
       {isDarkMode && (
@@ -55,7 +55,7 @@ const LoadingScreen: React.FC = () => {
           <motion.div 
             className="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl"
             style={{
-              background: 'rgba(99, 102, 241, 0.2)',
+              background: 'rgba(223, 190, 149, 0.15)',
             }}
             animate={{
               scale: [1, 1.2, 1],
@@ -69,7 +69,7 @@ const LoadingScreen: React.FC = () => {
           <motion.div 
             className="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl"
             style={{
-              background: 'rgba(147, 51, 234, 0.2)',
+              background: 'rgba(194, 159, 116, 0.15)',
             }}
             animate={{
               scale: [1, 1.2, 1],
@@ -99,7 +99,7 @@ const LoadingScreen: React.FC = () => {
             fontWeight: 'bold',
             marginBottom: '2rem',
             letterSpacing: '-0.05em',
-            color: isDarkMode ? '#ffffff' : '#1e1b4b',
+            color: isDarkMode ? '#fbf8f3' : '#26201b',
           }}
           className="md:text-6xl"
         >
@@ -117,7 +117,7 @@ const LoadingScreen: React.FC = () => {
               key={index}
               className="w-4 h-4 rounded-full"
               style={{
-                backgroundColor: '#6366f1',
+                backgroundColor: '#c29f74',
               }}
               variants={dotVariants}
             />
@@ -132,7 +132,7 @@ const LoadingScreen: React.FC = () => {
             marginTop: '2rem',
             fontSize: '1.125rem',
             fontWeight: '500',
-            color: isDarkMode ? '#ffffff' : '#1e1b4b',
+            color: isDarkMode ? '#aba092' : '#746759',
           }}
         >
           Crafting excellence in web development

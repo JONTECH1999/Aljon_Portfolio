@@ -14,7 +14,7 @@ const About: React.FC = () => {
       icon: FiDatabase,
       name: 'Web & Backend Development',
       description: 'Laravel, PHP, React, Inertia.js, Node.js, RESTful APIs, CRUD, JavaScript, TypeScript',
-      color: 'from-green-400 to-emerald-400',
+      color: 'from-amber-400 to-amber-600',
     },
     {
       icon: FiCpu,
@@ -79,7 +79,7 @@ const About: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="section-title">About Me</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#c29f74] to-[#dfbe95] mx-auto rounded-full"></div>
         </motion.div>
 
         {/* About Description */}
@@ -122,7 +122,7 @@ const About: React.FC = () => {
                 className="glass-effect p-6 rounded-xl text-center cursor-pointer group"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.1, y: -8, boxShadow: '0 8px 32px rgba(99,102,241,0.15)' }}
+                whileHover={{ scale: 1.08, y: -6, boxShadow: '0 8px 32px rgba(194,159,116,0.2)' }}
                 transition={{
                   duration: 0.6,
                   delay: idx * 0.1,
@@ -156,10 +156,10 @@ const About: React.FC = () => {
                   ease: 'easeOut',
                   delay: idx * 0.18,
                 }}
-                whileHover={{ scale: 1.13, y: -12, boxShadow: '0 8px 32px rgba(99,102,241,0.18)' }}
+                whileHover={{ scale: 1.05, y: -6, boxShadow: '0 8px 32px rgba(194,159,116,0.2)' }}
                 whileTap={{ scale: 0.97 }}
                 viewport={{ once: true, margin: '-100px' }}
-                className={`glass-effect p-6 rounded-xl border border-white/10 hover:border-indigo-500/50 transition-all group cursor-pointer`}
+                className={`glass-effect p-6 rounded-xl border border-white/10 hover:border-[#c29f74]/40 transition-all group cursor-pointer`}
               >
                 <div className={`bg-gradient-to-br ${skill.color} p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform`}>
                   <skill.icon size={24} className="text-slate-950" />
@@ -189,7 +189,7 @@ const About: React.FC = () => {
                 transition={{ delay: index * 0.05 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 rounded-lg px-4 py-2 text-center text-slate-700 dark:text-white/80 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="bg-[#c29f74]/10 border border-[#c29f74]/20 rounded-lg px-4 py-2 text-center text-slate-700 dark:text-white/80 hover:text-[#a88154] dark:hover:text-[#dfbe95] hover:border-[#c29f74]/40 transition-colors"
               >
                 {tech}
               </motion.div>

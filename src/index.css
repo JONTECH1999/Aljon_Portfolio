@@ -4,120 +4,151 @@
 
 @layer base {
   html {
-    --color-primary: #6366f1;
-    --color-secondary: #818cf8;
-    --color-accent: #4f46e5;
-    --light-bg: #f8f7ff;
-    --light-text: #1e1b4b;
-    --light-secondary-text: #4c1d95;
-    --light-border: #e9d5ff;
+    /* Designer Palette: Warm Linen, Cream, Sand & Roasted Espresso */
+    --color-primary: #c29f74;
+    --color-primary-rgb: 194, 159, 116;
+    --color-secondary: #d1b997;
+    --color-accent: #a88154;
+
+    --light-bg: #fbf9f4;
+    --light-text: #26201b;
+    --light-secondary-text: #746759;
+    --light-border: #e8dfd1;
     --light-card-bg: #ffffff;
-    --dark-bg: #0f172a;
-    --dark-text: #ffffff;
-    --dark-secondary-text: #e0e7ff;
-    --dark-border: #312e81;
-    --dark-card-bg: #1e293b;
-    --gradient-light: linear-gradient(135deg, #f8f7ff 0%, #faf5ff 100%);
-    --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+
+    --dark-bg: #14110f;
+    --dark-text: #fbf8f3;
+    --dark-secondary-text: #aba092;
+    --dark-border: rgba(225, 210, 185, 0.12);
+    --dark-card-bg: #1c1714;
+
+    --gradient-light: linear-gradient(135deg, #fbf9f4 0%, #f3ede2 100%);
+    --gradient-dark: linear-gradient(135deg, #14110f 0%, #1c1714 100%);
     scroll-behavior: smooth;
   }
 
   body {
-    @apply transition-colors duration-500;
-    background: var(--gradient-dark);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    background: var(--dark-bg);
     color: var(--dark-text);
   }
 
   body.light-mode {
-    background: var(--gradient-light);
+    background: var(--light-bg);
     color: var(--light-text);
   }
 }
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, #c29f74 0%, #dfbe95 50%, #e8d3b8 100%);
     @apply bg-clip-text text-transparent transition-all duration-300;
   }
 
+  body.light-mode .gradient-text {
+    background: linear-gradient(135deg, #9a6839 0%, #b88755 50%, #cfa679 100%);
+    @apply bg-clip-text text-transparent;
+  }
+
   .glass-effect {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--dark-border);
-    @apply backdrop-blur-md rounded-xl transition-all duration-300;
+    background: rgba(28, 23, 20, 0.75);
+    border: 1px solid rgba(225, 210, 185, 0.12);
+    @apply backdrop-blur-xl rounded-2xl transition-all duration-300;
   }
 
   body.light-mode .glass-effect {
-    background: rgba(0, 0, 0, 0.04);
-    border-color: var(--light-border);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(194, 159, 116, 0.2);
+    box-shadow: 0 4px 20px -2px rgba(168, 129, 84, 0.08);
   }
 
   .glass-effect-hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--dark-border);
-    @apply backdrop-blur-md rounded-xl transition-all duration-300;
+    background: rgba(28, 23, 20, 0.75);
+    border: 1px solid rgba(225, 210, 185, 0.12);
+    @apply backdrop-blur-xl rounded-2xl transition-all duration-300;
   }
 
   .glass-effect-hover:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(28, 23, 20, 0.9);
+    border-color: rgba(194, 159, 116, 0.4);
   }
 
   body.light-mode .glass-effect-hover {
-    background: rgba(0, 0, 0, 0.04);
-    border-color: var(--light-border);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(194, 159, 116, 0.2);
   }
 
   body.light-mode .glass-effect-hover:hover {
-    background: rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    border-color: rgba(194, 159, 116, 0.4);
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
     background: var(--dark-card-bg);
-    border-color: var(--dark-border);
+    border: 1px solid var(--dark-border);
   }
 
   body.light-mode .card-hover {
     background: var(--light-card-bg);
-    border-color: var(--light-border);
+    border: 1px solid var(--light-border);
   }
 
+  /* Tactile Modern Buttons */
   .btn-primary {
-    background: linear-gradient(to right, var(--color-primary), var(--color-accent));
-    box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.3);
-    @apply px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer;
+    background: linear-gradient(135deg, #c29f74 0%, #a88154 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px 0 rgba(168, 129, 84, 0.35);
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer inline-flex items-center justify-center gap-2;
   }
 
   .btn-primary:hover {
-    box-shadow: 0 0 30px var(--color-primary);
+    background: linear-gradient(135deg, #a88154 0%, #8c673d 100%);
+    box-shadow: 0 6px 20px rgba(168, 129, 84, 0.45);
   }
 
   .btn-secondary {
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer;
-    background: rgba(var(--color-primary), 0.05);
+    border: 1px solid rgba(225, 210, 185, 0.2);
+    color: var(--dark-text);
+    background: rgba(225, 210, 185, 0.05);
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer inline-flex items-center justify-center gap-2 backdrop-blur-md;
   }
 
   body.light-mode .btn-secondary {
-    background: rgba(var(--color-primary), 0.08);
+    border: 1px solid rgba(194, 159, 116, 0.25);
+    color: #26201b !important;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(168, 129, 84, 0.06);
   }
 
   .btn-secondary:hover {
-    background: rgba(var(--color-primary), 0.15);
+    border-color: #c29f74;
+    color: #c29f74 !important;
+    background: rgba(194, 159, 116, 0.1);
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold mb-12 gradient-text;
+    @apply text-4xl md:text-5xl font-bold mb-4 gradient-text;
   }
 
   .fade-in-up {
     @apply animate-slideUp;
   }
+
+  /* Modern interactive card hover effect */
+  .interactive-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-6px);
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.45rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -129,189 +160,34 @@ body.light-mode ::-webkit-scrollbar-track {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: #c29f74;
   border-radius: 9999px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+  background: #a88154;
 }
 
-/* Enhanced Slide Animations */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* View Transition API styles for circular ripple theme reveal */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounce-subtle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-bounce-subtle {
-  animation: bounce-subtle 2s infinite;
-}
-
-/* Light mode text color overrides - force black text */
-body.light-mode {
-  color: #000000 !important;
-}
-
-body.light-mode * {
-  color: inherit;
-}
-
-body.light-mode h1,
-body.light-mode h2,
-body.light-mode h3,
-body.light-mode h4,
-body.light-mode h5,
-body.light-mode h6 {
-  color: #000000 !important;
-}
-
-body.light-mode p,
-body.light-mode span,
-body.light-mode a,
-body.light-mode li,
-body.light-mode div {
-  color: #000000 !important;
-}
-
-body.light-mode .text-slate-900,
-body.light-mode .text-slate-700,
-body.light-mode .text-slate-600,
-body.light-mode .text-gray-900,
-body.light-mode .text-gray-700 {
-  color: #000000 !important;
-}
-
-body.light-mode .text-white,
-body.light-mode .dark\:text-white {
-  color: #000000 !important;
-}
-
-/* 3D Flip Card Animation */
-@keyframes flipCard {
-  0% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-  100% {
-    transform: rotateY(180deg) rotateX(0deg);
-  }
-}
-
-@keyframes flipCardReverse {
-  0% {
-    transform: rotateY(180deg) rotateX(0deg);
-  }
-  100% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-}
-
-.flip-card {
-  perspective: 1000px;
-  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.flip-card:hover {
-  transform: rotateY(180deg);
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-}
-
-.flip-card-front {
-  background: inherit;
-  border: inherit;
-  border-radius: inherit;
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-
-.flip-card-back {
-  background: inherit;
-  border: inherit;
-  border-radius: inherit;
-  transform: rotateY(180deg);
+::view-transition-old(root) {
   z-index: 1;
 }
 
-/* Smooth card hover effect with flip */
-.interactive-card {
-  perspective: 1000px;
-  transition: all 0.3s ease;
-  position: relative;
+::view-transition-new(root) {
+  z-index: 9999;
 }
 
-.interactive-card:hover {
-  transform: translateY(-8px);
+.dark::view-transition-old(root) {
+  z-index: 9999;
 }
 
-
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
