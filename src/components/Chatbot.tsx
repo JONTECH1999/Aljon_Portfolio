@@ -21,11 +21,11 @@ import { useTheme } from '../context/ThemeContext';
 const INITIAL_MESSAGE: ChatMessage = {
   id: 'welcome-msg',
   sender: 'assistant',
-  text: `Hello. I am **Aljon**, an AI assistant representing Aljon Alonzo.
+  text: `Hello! I am **Aljon**, an AI assistant representing Aljon Alonzo.
 
-I am here to assist HR recruiters, hiring managers, and visitors with his engineering background, technical stack, featured projects, and availability. You can also ask me any technical or general software question.
+I am here to help recruiters, hiring managers, and visitors learn about his background, featured projects, and availability in simple, easy-to-understand terms. You can also ask me any coding or technical questions.
 
-How can I assist you today?`,
+How can I help you today?`,
   timestamp: 'Just now',
 };
 
@@ -39,27 +39,27 @@ interface QuickPrompt {
 const QUICK_PROMPTS: QuickPrompt[] = [
   {
     id: 'skills',
-    label: 'Technical Skills',
-    query: 'What are your core technical skills and stack?',
+    label: 'Skills Explained',
+    query: 'Can you explain your core skills and tech stack in simple terms?',
     icon: FiCode,
   },
   {
     id: 'projects',
-    label: 'Thesis & IoT',
-    query: 'Tell me about your thesis and embedded IoT projects',
+    label: 'Projects & Demos',
+    query: 'Tell me about your projects and what they do',
     icon: FiCpu,
   },
   {
-    id: 'education',
-    label: 'Education',
-    query: 'What is your educational background and degree?',
-    icon: FiBookOpen,
+    id: 'experience',
+    label: 'Certicode Experience',
+    query: 'Tell me about your backend internship at Certicode',
+    icon: FiAward,
   },
   {
-    id: 'certs',
-    label: 'Certifications',
-    query: 'What verified certifications and awards do you have?',
-    icon: FiAward,
+    id: 'availability',
+    label: 'Start Date & Salary',
+    query: 'When can you start and what are your salary expectations?',
+    icon: FiBookOpen,
   },
   {
     id: 'contact',

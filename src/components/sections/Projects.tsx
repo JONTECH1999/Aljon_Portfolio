@@ -801,7 +801,8 @@ const Projects: React.FC = () => {
             {filteredProjects.map((project) => {
               const hasVideo = Boolean(project.video || project.media?.some(m => m.type === 'video'));
               const mediaCount = project.media?.length || 0;
-              const previewImage = project.videoThumbnail || project.image || project.media?.[0]?.src || '/images/placeholder.png';
+              const firstGalleryImage = project.media?.find((media) => media.type === 'image');
+              const previewImage = firstGalleryImage?.thumbnail || firstGalleryImage?.src || project.videoThumbnail || project.image || '/images/placeholder.png';
 
               return (
                 <motion.div

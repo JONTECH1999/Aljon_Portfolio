@@ -13,88 +13,104 @@ export interface ChatMessage {
 
 export const ALJON_SYSTEM_PROMPT = `
 You are "Aljon", the personal AI assistant and digital twin representing Aljon Alonzo on his portfolio website.
-You are also an exceptionally capable, accurate software engineer and technical expert.
+You are an exceptionally accurate, helpful, and articulate software engineer and technical representative.
 
-### INSTRUCTIONS FOR RESPONDING:
-1. **Answer Anything**: You can answer ANY question the user asks — including programming concepts, software engineering, architecture, coding problems, algorithms, technology comparisons, math, science, and general knowledge. Provide comprehensive, accurate, high-quality answers.
-2. **Representing Aljon Alonzo**: When asked about Aljon, his background, age, education, projects, skills, leadership, availability, salary, or demos, provide accurate, confident, and direct information based on his verified profile below. Speak in first-person as Aljon's AI representative (e.g., "I'd be glad to share Aljon's background...", "Aljon is ready to start immediately...", "His expected salary is PHP 25k–35k but open to negotiation...").
-3. **NO EMOJIS**: Strictly DO NOT use emojis anywhere in your responses (no icons, no pictograms). Use clean typography, markdown formatting, bullet points, bold text, code blocks, and structured lists instead.
-4. **Tone**: Professional, articulate, knowledgeable, helpful, and concise.
+### PRIMARY GOALS:
+1. **Explain Everything in Simple, Easy-to-Understand Language**:
+   - Many people who chat with you are HR recruiters, hiring managers, non-technical clients, or everyday visitors.
+   - **Always lead with a plain-English summary**: Start with 1 to 2 simple sentences explaining what a project, skill, or concept actually does in the real world and who it helps, avoiding confusing technical jargon upfront.
+   - **Use intuitive everyday analogies** when explaining complex technical terms or hardware:
+     - *APIs*: Compare to a friendly waiter taking an order from a customer's table to the kitchen and bringing back the meal.
+     - *Backend Development*: Compare to the engine inside a car or the kitchen in a restaurant — the behind-the-scenes system that securely handles data, processes logins, and makes everything run smoothly.
+     - *Frontend Development*: Compare to the car's steering wheel, dashboard, and seats — the visual part users can see, tap, and click.
+     - *BAHT Smart Helmet / Ultrasonic Sensors*: Compare to the parking backup beepers on modern cars, but built into a lightweight wearable helmet that gently buzzes and beeps to prevent visually impaired people from bumping into obstacles, while GPS keeps family members informed.
+     - *Microcontrollers & IoT (ESP32 / STM32)*: Giving everyday physical objects "brains" and sensors so they can sense the real world (like rain or obstacles) and react automatically.
+     - *Databases*: A secure digital filing cabinet where information is neatly sorted so it can be retrieved in milliseconds.
+     - *AI Developer Tools (GitHub Copilot, Claude, Gemini)*: Like having a smart digital co-pilot sitting beside a programmer to catch typos, draft code faster, and speed up testing.
+   - **Dual Structure**:
+     - *Layer 1 (Non-Tech Summary)*: Simple, friendly explanation of the real-world purpose and benefits.
+     - *Layer 2 (Technical Details)*: Clean bullet points with the exact languages, frameworks, sensors, and technical architecture for engineers and technical interviewers.
 
-### ABOUT ALJON ALONZO:
+2. **Absolute Accuracy & Grounding**:
+   - Strictly adhere to Aljon Alonzo's verified credentials and background. Never guess or hallucinate facts.
+   - Always represent him truthfully, positively, and professionally.
+
+3. **Strict Formatting Rules**:
+   - **NO EMOJIS**: Strictly DO NOT use emojis anywhere in your responses (no icons, no pictograms). Use clean typography, markdown formatting, bullet points, bold text, and structured sections instead.
+   - **Language**: English and Filipino / Tagalog. If the user asks in Filipino/Tagalog, answer politely in natural Tagalog or Taglish while keeping the simple explanations.
+
+### VERIFIED PROFILE OF ALJON ALONZO:
 - **Full Name**: Aljon R. Alonzo
-- **Birth Year & Age**: Born in 1999 (currently in his mid-20s, around 25-26 years old)
+- **Birth Year & Age**: Born in 1999 (mid-20s, around 25-26 years old)
 - **Title**: Computer Science Graduate & Full-Stack & Embedded Software Developer
-- **Education**: Bachelor of Science in Computer Science from Immaculada Concepcion College, Caloocan City (Graduation Date: June 16, 2026). NOTE: The institution name is strictly spelled **Immaculada Concepcion College** (with a "d", NEVER with a "t" as "Immaculata").
-- **Specialization**: Software Engineering, Full-Stack Web Development, Embedded IoT Systems, and AI-Accelerated Workflows
-- **Location / Address**: Block 8 Lot 4 Manggahan Malaria, North Caloocan City, Metro Manila, Philippines
+- **Degree**: Bachelor of Science in Computer Science (BSCS)
+- **Institution**: Immaculada Concepcion College, North Caloocan City
+- **Graduation Date**: June 16, 2026
+- **Spelling Requirement**: The college name is strictly spelled **Immaculada Concepcion College** (with a "d", NEVER with a "t" as "Immaculata").
+- **Location**: Block 8 Lot 4 Manggahan Malaria, North Caloocan City, Metro Manila, Philippines
 - **Email**: aljonrisasalonzo@gmail.com
 - **Phone**: +63 951 364 4817 / 09513644817
-- **Portfolio**: cute-marigold-6a6a30.netlify.app
+- **Portfolio URL**: cute-marigold-6a6a30.netlify.app
 - **GitHub**: https://github.com/JONTECH1999
 - **LinkedIn**: https://www.linkedin.com/in/aljon-alonzo-ba3bb4339/
 - **Facebook**: https://web.facebook.com/aljon11onsi
-- **Languages Spoken**: English and Filipino / Tagalog (Full professional proficiency in both written and verbal communication)
 
 ### WORK AVAILABILITY & PREFERENCES:
-- **Earliest Start Date**: Available to start **immediately** (no notice period required; ready for immediate onboarding and technical interviews).
-- **Work Setup Preference**: Primarily seeking **Remote or Hybrid** arrangements (open to hybrid schedules anywhere in Metro Manila, including Quezon City, BGC, Makati, Ortigas).
+- **Earliest Start Date**: Available to start **immediately** (0 days notice; ready for immediate onboarding and technical interviews).
+- **Work Setup**: Primarily **Remote or Hybrid** arrangements (open to hybrid schedules anywhere across Metro Manila, including Quezon City, BGC, Makati, Ortigas, and Caloocan).
 - **Salary Expectations**:
   - Baseline monthly expected range: **PHP 25,000 – PHP 35,000**.
-  - Open to negotiation based on total compensation packages, health benefits, mentorship, and career growth trajectories.
-- **Top Priority Roles**:
+  - Open to negotiation based on comprehensive benefits (HMO), mentorship opportunities, and long-term career growth.
+- **Top Priority Job Roles**:
   1. Backend Developer (PHP / Laravel / Node.js)
   2. Full-Stack Developer (React / Laravel / TypeScript)
   3. Embedded Systems / IoT Firmware Engineer (ESP32 / STM32 / C++)
 
 ### VERIFIED WORK EXPERIENCE:
 - **Certicode | Remote Backend Developer Intern** (January 2026 – April 2026):
-  - Utilized GitHub Copilot within VS Code and context-aware Prompt Engineering to streamline backend code generation, refactor complex algorithms, and reduce overall unit testing time.
-  - Developed and maintained web application features using PHP, JavaScript, and MySQL within an Agile software development environment.
-  - Designed, built, and tested RESTful APIs and backend business logic for high-efficiency data processing operations.
-  - Managed relational database structures, executed complex CRUD operations, and leveraged AI tools for rapid root-cause analysis and debugging.
-  - Collaborated via Git/GitHub for version control and authored technical documentation and API specifications.
+  - *Simple explanation*: Aljon worked remotely helping build the secure "behind-the-scenes" engine of web applications. He used modern AI tools like GitHub Copilot to write code faster and catch software bugs early.
+  - *Technical achievements*:
+    - Streamlined backend code generation, algorithm refactoring, and unit testing using GitHub Copilot and prompt engineering in VS Code.
+    - Developed and maintained server-side features using PHP, JavaScript, and MySQL in Agile sprints.
+    - Designed and tested RESTful APIs and backend business logic for high-efficiency data operations.
+    - Managed relational database schemas and complex CRUD queries.
+    - Collaborated via Git/GitHub and authored technical API documentation.
 
-### CORE TECHNICAL SKILLS:
-1. **AI & Developer Tools**:
-   - Generative AI, Prompt Engineering, GitHub Copilot, Gemini, ChatGPT, Claude AI, Model Context Protocol (MCP), AI-assisted debugging and code refactoring.
-   - Git, GitHub, Docker, Postman, VS Code, Android Studio, XAMPP, Netlify.
-2. **Web & Backend Development**:
-   - PHP, Laravel, React, Inertia.js, Node.js, RESTful APIs, CRUD operations, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS.
-3. **Embedded Systems & IoT**:
-   - ESP32, STM32, ESP-01, Arduino, C/C++ firmware, UART, SPI, I2C, Microcontrollers, Sensor integration.
-4. **Databases**:
-   - MySQL, PostgreSQL, Relational database design, SQL query optimization.
-5. **Hardware & Systems Diagnostics**:
-   - Hardware diagnostics, mobile phone repair, Android firmware flashing, and IoT circuit wiring.
-
-### KEY ENGINEERING PROJECTS & LIVE DEMO DRIVE:
-- **Official Google Drive Demo Folder**: [Google Drive Demo Folder](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing) (Contains video demonstrations, prototype tests, and project documentation for BAHT and related systems).
+### KEY PROJECTS (EXPLAINED SIMPLY & TECHNICALLY):
+- **Official Google Drive Demo Folder**: [Open Project Demonstrations](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing) (Contains working video demonstrations, hardware prototype tests, and thesis documentation).
 
 1. **Blind Assistive Head Tech (BAHT) | Lead Thesis Developer**:
-   - Engineered a wearable assistive device using ESP32, C++, ultrasonic distance sensors, vibration haptic feedback, buzzer alerts, and GPS tracking.
-   - Implemented non-blocking sensor processing and **Exponential Moving Average (EMA) filtering** for low-latency obstacle detection.
-   - Programmed C++ firmware, performed hardware wiring integration, and created a companion **Android configuration app**.
-   - Presented the working prototype to **PDAO Caloocan** (Persons with Disability Affairs Office) and **NCDA** (National Council on Disability Affairs); submitted project for **DOST funding evaluation**.
-   - Honors: 2nd Place at BSCS Symposium 2025 Robotics Competition; Department Outstanding Contribution Award; Thesis Team Leader.
-   - Demo Drive: [View BAHT Video & System Demos](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing)
-2. **ALMKA Blind Web App | IoT & Full-Stack Developer**:
-   - Integrated ESP32, ESP32-CAM, GPS modules, and sensor arrays with a web-based real-time monitoring dashboard.
-   - Connected embedded C++ telemetry data streams to a React, PHP, and MySQL web application for live tracking.
-3. **Automated Rain Detection Cargo Cover | Embedded Developer**:
-   - Programmed STM32 C/C++ firmware utilizing state-machine architecture to control motorized covers based on real-time sensor inputs.
-   - Integrated rain sensors, stepper motor drivers, and visual/auditory status alert modules.
-4. **ALMKA Water Billing & Customer Management Portal**:
-   - Production web solution for utility billing management in Laravel, PHP, MySQL, and React/Blade.
-   - Handles automated billing calculation, SMS notification dispatches, meter reading entries, and user accounts.
-5. **Library Management System**:
-   - Full-stack cataloging, book issuance, student record management, and overdue fine calculations with clean relational schemas.
-6. **Online Food Ordering Platform**:
-   - Interactive ordering portal featuring dynamic menu selection, shopping cart state management, and administrative tracking.
+   - *In Simple Terms*: A smart assistive wearable helmet created to help blind and visually impaired people navigate safely. Just like parking sensors in a car that beep when you get close to a wall, this helmet detects nearby obstacles and warns the wearer through gentle vibrations and sound alerts. It also includes GPS so loved ones can see where the wearer is, plus a mobile app to customize settings.
+   - *Technical Specs*:
+     - Microcontroller: ESP32 programmed in C++.
+     - 4 ultrasonic distance sensors with real-time non-blocking polling and Exponential Moving Average (EMA) filtering to eliminate false alarms.
+     - Dual vibration haptic feedback motors, audio buzzer alerts, and GPS module integration.
+     - Custom Android companion configuration application.
+     - Honors: 2nd Place at BSCS Symposium 2025 Robotics Competition; Department Outstanding Contribution Award; Thesis Team Leader.
+     - Presented to PDAO Caloocan (Persons with Disability Affairs Office) and NCDA (National Council on Disability Affairs); submitted for DOST funding evaluation.
 
-### LEADERSHIP & COMMUNITY INITIATIVES:
-- **Thesis Team Leader**: Led a 3-person engineering team across software architecture, embedded hardware integration, field testing, and project documentation.
-- **Youth Organization President**: Managed 63 members and 7 officers in planning and executing community outreach programs and service initiatives.
+2. **ALMKA Blind Web App | IoT & Full-Stack Developer**:
+   - *In Simple Terms*: A companion live website for the assistive helmet. It acts like a guardian dashboard where caregivers or family members can open a browser to see the user's real-time GPS location and camera feed.
+   - *Technical Specs*: ESP32, ESP32-CAM, GPS modules, React frontend, PHP/MySQL backend for live telemetry streaming.
+
+3. **Automated Rain Detection Cargo Cover | Embedded Developer**:
+   - *In Simple Terms*: An intelligent weather-protection system for delivery trucks and outdoor cargo. When rain sensors detect the first drops of rain, a motorized cover automatically slides over the cargo to keep goods dry, and reopens when the weather clears.
+   - *Technical Specs*: STM32 microcontroller running C/C++ firmware with a finite state-machine architecture, rain sensor modules, stepper motor drivers, and alert sound indicators.
+
+4. **ALMKA Water Billing & Customer Management Portal**:
+   - *In Simple Terms*: A digital billing and customer management website for water utilities that replaces manual paper meter reading. It automatically calculates customer water bills and sends instant SMS text notifications.
+   - *Technical Specs*: Built with Laravel, PHP, MySQL, React/Blade, SMS gateway integration, and automated calculation modules.
+
+### CORE TECHNICAL SKILLS:
+- **AI-Accelerated Development**: GitHub Copilot, Prompt Engineering, Gemini, ChatGPT, Claude AI, Model Context Protocol (MCP), AI-assisted debugging.
+- **Web & Backend**: PHP, Laravel, React, Inertia.js, Node.js, TypeScript, JavaScript, RESTful APIs, Tailwind CSS.
+- **Embedded & IoT**: ESP32, STM32, Arduino, ESP-01, C/C++ firmware, UART, SPI, I2C, sensor integration.
+- **Databases**: MySQL, PostgreSQL, relational schema design, SQL query optimization.
+- **Hardware & Repair**: Hardware diagnostics, mobile phone repair, Android firmware flashing, IoT circuit wiring.
+
+### LEADERSHIP & COMMUNITY:
+- **Thesis Team Leader**: Led a 3-member engineering team across software architecture, circuit wiring, field trials, and thesis defense.
+- **Youth Organization President**: Led 63 members and 7 executive officers in community outreach programs and service initiatives.
 `;
 
 const LOCAL_STORAGE_KEY = 'aljon_anthropic_api_key';
@@ -137,7 +153,7 @@ export const hasConfiguredApiKey = (): boolean => {
 
 /**
  * Intelligent pattern-matching fallback engine
- * Provides immediate, high-quality answers if Anthropic API is not yet configured or offline.
+ * Provides immediate, accurate, non-tech-friendly answers if Anthropic API is not configured or offline.
  * Absolutely NO emojis.
  */
 export const getSmartFallbackResponse = (query: string): string => {
@@ -149,12 +165,17 @@ export const getSmartFallbackResponse = (query: string): string => {
     q.includes('rate') ||
     q.includes('compensation') ||
     q.includes('pay') ||
-    q.includes('expect')
+    q.includes('expect') ||
+    q.includes('how much')
   ) {
-    return `### Salary Expectations
+    return `### Expected Salary & Compensation
 
-- **Expected Range**: PHP 25,000 – PHP 35,000 per month for junior software engineering, backend, or full-stack positions.
-- **Flexibility**: Open to negotiation based on the role's scope, comprehensive benefits, mentorship opportunities, and long-term career growth.`;
+Aljon keeps his salary expectations realistic, competitive, and open to discussion:
+
+- **Expected Range**: **PHP 25,000 – PHP 35,000 per month** for junior software engineering, backend developer, or full-stack roles.
+- **Open to Negotiation**: Highly flexible depending on total benefits (such as healthcare/HMO, government benefits), hybrid perks, mentorship opportunities, and long-term career growth.
+
+He is focused on joining a forward-thinking team where he can deliver immediate value and continue expanding his skills.`;
   }
 
   // Availability & Start Date
@@ -163,13 +184,14 @@ export const getSmartFallbackResponse = (query: string): string => {
     q.includes('available') ||
     q.includes('notice') ||
     q.includes('when can') ||
-    q.includes('immediate')
+    q.includes('immediate') ||
+    q.includes('join')
   ) {
-    return `### Work Availability
+    return `### Work Availability & Start Date
 
 - **Earliest Start Date**: Aljon is available to start **immediately**.
 - **Notice Period**: None (0 days notice required).
-- **Status**: Graduating June 16, 2026 from Immaculada Concepcion College, available for immediate onboarding, technical interviews, and contract or full-time roles.`;
+- **Readiness**: Graduating with a Bachelor of Science in Computer Science from **Immaculada Concepcion College** on **June 16, 2026**, he is 100% ready for technical interviews, coding challenges, and immediate onboarding for full-time or contract positions.`;
   }
 
   // Work Setup & Location
@@ -179,13 +201,15 @@ export const getSmartFallbackResponse = (query: string): string => {
     q.includes('onsite') ||
     q.includes('setup') ||
     q.includes('work arrangement') ||
-    q.includes('office')
+    q.includes('office') ||
+    q.includes('where do you live') ||
+    q.includes('location')
   ) {
     return `### Work Arrangement Preferences
 
 - **Primary Preference**: **Remote or Hybrid**.
-- **Hybrid Location**: Accessible across Metro Manila (Quezon City, Bonifacio Global City, Makati, Ortigas, Caloocan).
-- **Home Base**: North Caloocan City, Metro Manila.`;
+- **Accessible Hybrid Locations**: Conveniently accessible across Metro Manila, including Quezon City, Bonifacio Global City (BGC), Makati, Ortigas, and Caloocan.
+- **Home Base**: North Caloocan City, Metro Manila, Philippines (equipped with a reliable home workstation and high-speed internet).`;
   }
 
   // Demos, Videos & Google Drive
@@ -197,68 +221,21 @@ export const getSmartFallbackResponse = (query: string): string => {
     q.includes('watch') ||
     q.includes('recording')
   ) {
-    return `### Project Demonstrations & Video Drive
+    return `### Project Demonstrations & Video Proof
 
-You can access working video demonstrations, hardware tests, and documentation for the BAHT Smart Helmet and other systems directly on Google Drive:
+You can watch real working video recordings, hardware tests, and prototype walkthroughs directly on Google Drive:
 
-- **Google Drive Demo Folder**: [Open Project Demonstrations](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing)
-- You can also view featured videos and repositories in the **[Featured Projects](#projects)** section on this portfolio.`;
+- **Official Google Drive Demo Folder**: [Open Video Demonstrations](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing)
+- **What is inside**:
+  - Live obstacle detection tests for the BAHT Smart Assistive Helmet.
+  - Haptic vibration and sound buzzer demos.
+  - Mobile Android configuration app walkthrough.
+  - Presentation photos at PDAO Caloocan and NCDA.
+
+You can also explore live code and interactive media in the **[Featured Projects](#projects)** section on this page.`;
   }
 
-  // Languages Spoken
-  if (
-    q.includes('language') &&
-    (q.includes('speak') || q.includes('tagalog') || q.includes('english') || q.includes('filipino'))
-  ) {
-    return `### Languages Spoken
-
-- **English**: Full professional proficiency (fluent in written technical documentation and verbal communication).
-- **Filipino / Tagalog**: Native proficiency.`;
-  }
-
-  // Age & Birthday
-  if (
-    q.includes('how old') ||
-    q.includes('age') ||
-    q.includes('birth') ||
-    q.includes('born')
-  ) {
-    return `Aljon was born in 1999 and is currently in his mid-20s (around 25 to 26 years old). He is graduating with a Bachelor of Science in Computer Science from Immaculada Concepcion College on June 16, 2026.`;
-  }
-
-  // Work Experience / Certicode
-  if (
-    q.includes('certicode') ||
-    q.includes('experience') ||
-    q.includes('work') ||
-    q.includes('intern') ||
-    q.includes('ojt')
-  ) {
-    return `### Professional Experience
-
-**Certicode | Remote Backend Developer Intern (January 2026 – April 2026)**
-- Utilized GitHub Copilot in VS Code and context-aware prompt engineering to streamline backend code generation and reduce unit testing time.
-- Developed and maintained web features using PHP, JavaScript, and MySQL in an Agile environment.
-- Designed and tested RESTful APIs and backend business logic for high-efficiency data operations.
-- Managed relational database structures, complex CRUD queries, and AI-accelerated root-cause analysis.
-- Collaborated via Git/GitHub and authored API documentation and technical specifications.`;
-  }
-
-  // Leadership & Community
-  if (
-    q.includes('leader') ||
-    q.includes('president') ||
-    q.includes('youth') ||
-    q.includes('team') ||
-    q.includes('organization')
-  ) {
-    return `### Leadership & Extracurricular Roles
-
-- **Thesis Team Leader**: Directed a 3-person engineering team overseeing software architecture, embedded C++ firmware, circuit wiring, and field trials for the BAHT assistive helmet.
-- **Youth Organization President**: Managed 63 active members and 7 executive officers in planning and executing community outreach programs and civic initiatives.`;
-  }
-
-  // Projects & Thesis
+  // Projects & Thesis (Plain English + Tech details)
   if (
     q.includes('project') ||
     q.includes('thesis') ||
@@ -267,46 +244,85 @@ You can access working video demonstrations, hardware tests, and documentation f
     q.includes('blind') ||
     q.includes('cargo') ||
     q.includes('rain') ||
+    q.includes('water billing') ||
     q.includes('almka')
   ) {
-    return `### Key Engineering Projects
+    return `### Key Projects (Explained Simply & Technically)
+
+Here is an easy-to-understand breakdown of Aljon's featured engineering projects:
 
 1. **Blind Assistive Head Tech (BAHT) | Lead Thesis Developer**
-   - Wearable obstacle avoidance system using ESP32, C++, ultrasonic sensors, vibration haptic feedback, buzzer alerts, and GPS tracking.
-   - Non-blocking sensor polling with Exponential Moving Average (EMA) signal filtering.
-   - Built a companion Android configuration app and presented to PDAO Caloocan and NCDA; submitted for DOST funding evaluation.
-   - Awarded 2nd Place at BSCS Symposium 2025 Robotics Competition and Department Outstanding Contribution Award.
-   - **Google Drive Demos**: [View Working Videos](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing)
+   - **In Plain English**: Think of this as parking backup sensors in modern cars, but miniaturized into a wearable helmet. It helps blind and visually impaired people walk safely by sensing obstacles in front of them and giving gentle vibration and audio warnings. It also has GPS so family members know where they are.
+   - **Technical Details**: Built with an ESP32 microcontroller, C++ firmware, 4 ultrasonic distance sensors with signal smoothing (EMA filtering), vibration motors, GPS, and a custom Android companion app.
+   - **Recognition**: Awarded 2nd Place in the BSCS Symposium Robotics Competition; Department Outstanding Contribution Award; presented to PDAO Caloocan and NCDA.
+   - **Video Demos**: [Watch Working Videos on Google Drive](https://drive.google.com/drive/folders/1Ga65VCl8V-m3EKraqQ-sxeIr1F_BSlIs?usp=sharing)
 
 2. **ALMKA Blind Web App | IoT & Full-Stack Developer**
-   - Telemetry bridge connecting ESP32, ESP32-CAM, and GPS sensor feeds to a live React, PHP, and MySQL monitoring dashboard.
+   - **In Plain English**: A live monitoring website for caregivers. It shows the helmet user's real-time location on a map and connects to camera feeds so family members can check in anytime from their phone or computer.
+   - **Technical Details**: ESP32-CAM and GPS telemetry streams connected to a responsive React, PHP, and MySQL web application.
 
 3. **Automated Rain Detection Cargo Cover | Embedded Developer**
-   - STM32 C/C++ firmware with finite state-machine architecture, rain sensors, stepper motor drivers, and auditory alert modules.
+   - **In Plain English**: An automated weather guard for cargo trucks. When it senses rain, a motorized cover slides shut automatically to protect merchandise, and reopens when the rain stops.
+   - **Technical Details**: Programmed on an STM32 microcontroller in C/C++ using state-machine logic, rain sensors, and stepper motors.
 
-4. **ALMKA Water Utility Billing Platform**
-   - Production management portal built in Laravel, PHP, MySQL, and React with automated bill computation and SMS alerts.
+4. **ALMKA Water Utility Billing Platform | Full-Stack Developer**
+   - **In Plain English**: A digital management portal for water providers that replaces manual paper billing with automated bill calculations and instant SMS payment reminders to customers.
+   - **Technical Details**: Built with Laravel, PHP, MySQL, and React.
 
-You can inspect videos and code in the **[Featured Projects](#projects)** section.`;
+Check out the **[Featured Projects](#projects)** section for photos and technical breakdowns.`;
   }
 
-  // Skills & Tech Stack
+  // Work Experience / Certicode
+  if (
+    q.includes('certicode') ||
+    q.includes('experience') ||
+    q.includes('work') ||
+    q.includes('intern') ||
+    q.includes('ojt') ||
+    q.includes('job history')
+  ) {
+    return `### Professional Experience
+
+**Certicode | Remote Backend Developer Intern (January 2026 – April 2026)**
+
+- **In Plain English**: Aljon worked as a backend developer, which means building the behind-the-scenes engine that powers websites — handling user logins, storing data securely, and connecting different services together. He also used modern AI coding assistants (like GitHub Copilot) to write code faster and catch mistakes early.
+
+- **Key Responsibilities & Achievements**:
+  - Accelerated backend feature development and reduced testing time using GitHub Copilot and context-aware prompt engineering in VS Code.
+  - Developed server-side features using PHP, JavaScript, and MySQL in an Agile team environment.
+  - Designed and tested RESTful APIs to deliver fast and reliable data exchange between the server and the website interface.
+  - Handled relational database management, CRUD operations, and bug fixes.
+  - Managed version control with Git/GitHub and wrote clear technical documentation.`;
+  }
+
+  // Skills & Tech Stack (Non-Tech Explanation + Specifics)
   if (
     q.includes('skill') ||
     q.includes('stack') ||
     q.includes('technology') ||
-    q.includes('language') ||
-    q.includes('framework') ||
     q.includes('tool') ||
-    q.includes('ai')
+    q.includes('what can you do') ||
+    q.includes('capable')
   ) {
-    return `### Core Technical Stack
+    return `### Core Technical Skills (Explained for Everyone)
 
-- **AI & Developer Tools**: GitHub Copilot, Gemini, ChatGPT, Claude AI, Model Context Protocol (MCP), Prompt Engineering, Git, Docker, Postman, VS Code, Android Studio.
-- **Web & Backend**: PHP, Laravel, React, Inertia.js, Node.js, TypeScript, JavaScript, RESTful APIs, Tailwind CSS.
-- **Embedded & IoT**: ESP32, STM32, Arduino, ESP-01, Embedded C/C++, UART, SPI, I2C, Sensor Integration.
-- **Databases**: MySQL, PostgreSQL, Relational DB Design, Query Optimization.
-- **Diagnostics**: Hardware diagnostics, mobile phone repair, Android firmware flashing.`;
+Aljon's skillset bridges modern web software, smart physical hardware, and AI productivity tools:
+
+1. **AI & Developer Productivity**:
+   - *What it means*: Using smart AI tools like GitHub Copilot, ChatGPT, Claude, and Gemini to write cleaner code, solve complex bugs faster, and speed up testing.
+   - *Tools*: GitHub Copilot, Prompt Engineering, Model Context Protocol (MCP), Git, Docker, Postman, VS Code.
+
+2. **Web & Backend Development**:
+   - *What it means*: Building both the visual parts of websites that people interact with (frontend) and the secure behind-the-scenes database engines that store information (backend).
+   - *Stack*: PHP, Laravel, React, TypeScript, JavaScript, Node.js, Inertia.js, RESTful APIs, Tailwind CSS.
+
+3. **Smart Hardware & IoT (Internet of Things)**:
+   - *What it means*: Giving everyday physical items "brains" and sensors so they can sense the real world (like distance, heat, or rain) and act automatically.
+   - *Technologies*: ESP32, STM32, Arduino, Embedded C/C++, sensor integration, circuit wiring.
+
+4. **Databases & Systems**:
+   - *What it means*: Secure digital filing cabinets that organize information so it can be searched and updated in milliseconds.
+   - *Technologies*: MySQL, PostgreSQL, relational database design, SQL query optimization.`;
   }
 
   // Education & Degree
@@ -318,12 +334,59 @@ You can inspect videos and code in the **[Featured Projects](#projects)** sectio
     q.includes('graduate') ||
     q.includes('university')
   ) {
-    return `### Education & Academic Background
+    return `### Educational Background
 
 - **Degree**: Bachelor of Science in Computer Science (BSCS)
-- **Institution**: Immaculada Concepcion College, Caloocan City
-- **Graduation Date**: June 16, 2026
-- **Honors & Roles**: Thesis Team Leader, 2nd Place Robotics Competition (BSCS Symposium 2025), Department Outstanding Contribution Award.`;
+- **Institution**: **Immaculada Concepcion College**, North Caloocan City (spelled with a "d", not a "t")
+- **Graduation Date**: **June 16, 2026**
+- **Academic Highlights**:
+  - Thesis Team Leader for the BAHT Smart Assistive Helmet project.
+  - 2nd Place Winner in the BSCS Symposium 2025 Robotics Competition.
+  - Department Outstanding Contribution Award recipient for innovations in assistive technology.`;
+  }
+
+  // Leadership & Community
+  if (
+    q.includes('leader') ||
+    q.includes('president') ||
+    q.includes('youth') ||
+    q.includes('team') ||
+    q.includes('organization')
+  ) {
+    return `### Leadership & Community Roles
+
+Beyond technical engineering, Aljon has a proven track record of teamwork and leadership:
+
+- **Thesis Team Leader (2024 – 2025)**:
+  - Led a 3-person engineering team in designing the BAHT assistive helmet from concept to prototype.
+  - Coordinated software code, electronics wiring, user safety field tests, and formal thesis presentations before academic panels and government disability councils.
+
+- **Youth Organization President**:
+  - Managed 63 active members and 7 executive officers.
+  - Spearheaded community outreach programs, youth development workshops, and civic service activities.`;
+  }
+
+  // Languages Spoken
+  if (
+    q.includes('language') &&
+    (q.includes('speak') || q.includes('tagalog') || q.includes('english') || q.includes('filipino'))
+  ) {
+    return `### Languages Spoken
+
+Aljon is bilingual with full professional communication skills:
+
+- **English**: Full professional proficiency (fluent in written technical documentation, verbal presentations, and team meetings).
+- **Filipino / Tagalog**: Native proficiency.`;
+  }
+
+  // Age & Birthday
+  if (
+    q.includes('how old') ||
+    q.includes('age') ||
+    q.includes('birth') ||
+    q.includes('born')
+  ) {
+    return `Aljon Alonzo was born in 1999 and is currently in his mid-20s (around 25 to 26 years old). He is graduating with a Bachelor of Science in Computer Science from Immaculada Concepcion College on June 16, 2026.`;
   }
 
   // Contact, Hire, Availability & Resume
@@ -335,25 +398,78 @@ You can inspect videos and code in the **[Featured Projects](#projects)** sectio
     q.includes('reach') ||
     q.includes('interview') ||
     q.includes('job') ||
-    q.includes('resume') ||
-    q.includes('location') ||
-    q.includes('address')
+    q.includes('resume')
   ) {
-    return `Aljon is currently open to full-time and contract software roles.
+    return `### How to Contact & Hire Aljon
 
-### Direct Contact Details:
+Aljon is actively seeking full-time or contract software roles and is ready to start **immediately**.
+
 - **Email**: [aljonrisasalonzo@gmail.com](mailto:aljonrisasalonzo@gmail.com)
-- **Phone**: [+63 951 364 4817](tel:+639513644817)
-- **Address**: Block 8 Lot 4 Manggahan Malaria, North Caloocan City, Metro Manila, Philippines
+- **Phone / Mobile**: [+63 951 364 4817](tel:+639513644817) (09513644817)
+- **Location**: North Caloocan City, Metro Manila, Philippines
 - **Portfolio**: [cute-marigold-6a6a30.netlify.app](https://cute-marigold-6a6a30.netlify.app)
 - **GitHub**: [github.com/JONTECH1999](https://github.com/JONTECH1999)
 - **LinkedIn**: [linkedin.com/in/aljon-alonzo-ba3bb4339](https://www.linkedin.com/in/aljon-alonzo-ba3bb4339/)
 
-### Preferred Roles:
-- Backend Developer (PHP / Laravel)
-- Full-Stack Developer (React / Laravel / Node.js)
-- Embedded IoT Systems Developer
-- Arrangement: **Remote or Hybrid** across Metro Manila. Available immediately with expected salary PHP 25k–35k (negotiable).`;
+### Quick Summary for Recruiters:
+- **Roles**: Backend Developer (PHP/Laravel), Full-Stack Developer (React/Laravel), Embedded IoT Developer (ESP32/C++).
+- **Availability**: Immediate (0 days notice).
+- **Setup**: Remote or Hybrid across Metro Manila.
+- **Salary**: PHP 25,000 – PHP 35,000 / month (negotiable).`;
+  }
+
+  // General Concept: What is an API?
+  if (q.includes('what is an api') || q.includes('what is api') || q.includes('explain api')) {
+    return `### What is an API? (Explained in Plain English)
+
+Think of an **API** (Application Programming Interface) like a **waiter in a restaurant**:
+
+1. You are sitting at a table with a menu.
+2. The kitchen is the system that prepares the food.
+3. You cannot walk into the kitchen yourself to cook. Instead, the **waiter** takes your order, delivers it to the kitchen, and brings your meal back to your table.
+
+In computer terms, an API is a secure messenger that lets two different software applications talk to each other and exchange information safely without having to know how the other system is built inside.`;
+  }
+
+  // General Concept: Backend vs Frontend
+  if (
+    q.includes('backend vs frontend') ||
+    q.includes('frontend vs backend') ||
+    q.includes('what is backend') ||
+    q.includes('what is frontend')
+  ) {
+    return `### Frontend vs. Backend (Explained in Plain English)
+
+Think of a website or app like a **car**:
+
+- **Frontend (The Surface)**: This is the steering wheel, dashboard, seats, and touchscreen. It is everything the user sees, touches, and clicks on. Technologies used include **React, HTML, CSS, and JavaScript**.
+- **Backend (The Engine)**: This is the engine under the hood, the fuel injection, and the transmission. You do not see it while driving, but without it, the car does not move. The backend securely checks passwords, stores data, and processes payments. Technologies used include **PHP, Laravel, Node.js, and MySQL**.
+
+Aljon has hands-on experience in both, with a strong focus on backend and system architecture!`;
+  }
+
+  // General Concept: What is IoT?
+  if (q.includes('what is iot') || q.includes('internet of things') || q.includes('embedded')) {
+    return `### What is IoT & Embedded Systems? (In Plain English)
+
+**IoT** stands for the **Internet of Things**.
+
+In simple terms, it means giving everyday physical items (like a helmet, a rain cover, or a water meter) a tiny computer "brain" and sensors so they can connect to the internet or communicate with humans automatically.
+
+For example, in Aljon's **BAHT Thesis Project**, he attached small sensors to a helmet so it can detect obstacles and vibrate before a visually impaired person bumps into them. That is an embedded IoT system in action!`;
+  }
+
+  // General Concept: What is AI-Assisted Development?
+  if (q.includes('copilot') || q.includes('prompt engineering') || q.includes('ai-assisted')) {
+    return `### What is AI-Assisted Development? (In Plain English)
+
+Think of AI coding tools (like **GitHub Copilot**, **ChatGPT**, or **Gemini**) like having an **expert digital co-pilot** sitting beside a software engineer:
+
+- The engineer still makes the important design and architectural decisions.
+- The AI co-pilot quickly helps type boilerplate code, spots syntax typos, and suggests tests.
+- This allows the developer to finish projects in less time and catch potential bugs before they reach production.
+
+Aljon utilized these tools during his internship at Certicode to speed up backend development and improve code quality.`;
   }
 
   // Greetings
@@ -362,33 +478,34 @@ You can inspect videos and code in the **[Featured Projects](#projects)** sectio
     q.includes('hi') ||
     q.includes('hey') ||
     q.includes('who are you') ||
-    q.includes('what can you do')
+    q.includes('good morning') ||
+    q.includes('good afternoon')
   ) {
-    return `Hello. I am Aljon, an AI assistant representing Aljon R. Alonzo.
+    return `Hello! I am **Aljon**, an AI assistant representing Aljon R. Alonzo.
 
-I can assist you with:
-- Work availability (available immediately, remote or hybrid, salary PHP 25k–35k negotiable)
-- Professional experience at Certicode as a Remote Backend Developer Intern
-- Technical toolkit across Laravel, React, TypeScript, ESP32, STM32, and C/C++
-- Key projects including the BAHT smart assistive helmet and Google Drive demo videos
-- Academic credentials from Immaculada Concepcion College (graduating June 16, 2026)
-- Leadership background as Thesis Team Leader and Youth Organization President
-- Any software engineering, algorithm, or technical question
+I am here to answer your questions in plain, easy-to-understand language. Here is how I can help:
 
-Feel free to ask any question or select one of the suggested prompts below.`;
+- **Work Availability**: Aljon is available to start immediately (Remote or Hybrid, PHP 25k–35k negotiable).
+- **Projects**: The BAHT Smart Assistive Helmet, live video demos, and web apps.
+- **Experience**: His remote backend developer internship at Certicode.
+- **Skills**: Web development (Laravel, React, PHP), smart IoT devices (ESP32/C++), and AI tools.
+- **Education**: Computer Science graduate from Immaculada Concepcion College (June 16, 2026).
+- **Technical Questions**: Ask me any software engineering or coding question!
+
+What would you like to know today?`;
   }
 
   // Default fallback
-  return `Thank you for your question. Aljon Alonzo is a Computer Science graduate specializing in Laravel, PHP, React, TypeScript, and Embedded IoT Systems (ESP32/C++).
+  return `Thank you for asking. Aljon Alonzo is a Computer Science graduate and software developer specializing in Laravel, PHP, React, TypeScript, and Embedded IoT Systems (ESP32/C++).
 
-Here are some topics you can ask me about:
-- "What is your expected salary and availability to start?"
-- "Can you share the video demos for your BAHT thesis project?"
-- "Tell me about your backend internship at Certicode."
-- "What work setup are you looking for (remote/hybrid)?"
-- "How can I schedule an interview with Aljon?"
+Here are a few quick things you can ask me:
+- **"Tell me about your projects in simple terms"** (Learn about the BAHT smart helmet and rain cover)
+- **"What is your availability and expected salary?"** (Immediate start, PHP 25k–35k negotiable)
+- **"Where can I see video demos?"** (Google Drive demo videos)
+- **"Tell me about your internship at Certicode"** (Backend experience and achievements)
+- **"How can I contact or interview Aljon?"** (Direct email, phone, and links)
 
-You can also reach him directly at aljonrisasalonzo@gmail.com or via the Contact section.`;
+You can also reach Aljon directly at **aljonrisasalonzo@gmail.com** or call **+63 951 364 4817**.`;
 };
 
 /**
