@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import MediaCarousel from '../MediaCarousel';
 import MediaModal from '../MediaModal';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiX, FiPlay, FiInfo, FiImage } from 'react-icons/fi';
+import FlagshipProject from './FlagshipProject';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { FiExternalLink, FiGithub, FiX, FiPlay, FiInfo, FiImage, FiArrowRight } from 'react-icons/fi';
 import { FaFacebook, FaYoutube } from 'react-icons/fa';
 
 interface ProjectMedia {
@@ -43,11 +44,11 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'Blind Assistive Head Tech ',
-      description: 'Advanced wearable assistive technology with multi-directional ultrasonic sensors, directional vibration feedback, and voice guidance for intelligent obstacle detection and independent navigation of visually impaired users.',
-      fullDescription: 'Advanced wearable assistive technology designed to support blind and visually impaired individuals through intelligent obstacle detection, real-time sensory feedback, and voice-guided navigation. The system is developed in the form of a wearable headband that enhances environmental awareness by combining hardware innovation with smart assistive software, enabling users to navigate safely and independently in different environments.\n\nThe device utilizes four ultrasonic sensors strategically positioned at the front, left, right, and downward directions to continuously scan the surroundings and detect nearby obstacles, including ground-level hazards that are commonly difficult to identify using traditional mobility aids alone. These sensors can detect objects within an approximate range of up to 200 centimeters, allowing users to receive early warnings and improve reaction time while moving.\n\nTo provide intuitive navigation assistance, each sensor is paired with a dedicated vibration motor placed at the corresponding area of the headband. When an obstacle is detected, the user receives directional vibration feedback that indicates the exact location of the hazard. The vibration intensity dynamically changes based on the obstacle\'s distance — weak vibrations indicate distant objects, moderate vibrations signal approaching obstacles, and strong vibrations warn the user of immediate proximity.\n\nThe system also includes an optional voice-guided feedback feature that delivers real-time distance announcements and warning notifications. When obstacles are detected within critical range thresholds, the device activates continuous alert warnings to notify the user of immediate danger, further improving navigation safety and situational awareness.\n\nTo accommodate different user preferences and accessibility needs, the device supports multiple operating modes including vibration-only mode, voice-only mode, and combined vibration-and-voice mode. Additional customization settings such as voice volume and vibration intensity can also be adjusted and automatically stored within the system memory for consistent user experience after restarting the device.\n\nThe primary objective of the Blind Assistive Head Tech is to improve the independence, mobility, confidence, and safety of visually impaired individuals by providing an accessible wearable assistive solution. Rather than replacing traditional mobility tools such as white canes, the system is designed to complement them by offering enhanced multi-directional environmental awareness and earlier obstacle detection capabilities.\n\nThe project also undergoes usability and performance testing to evaluate obstacle detection accuracy, comfort during prolonged usage, effectiveness of sensory feedback, and overall user experience in real-world environments. Feedback gathered from testing is used to continuously improve the system\'s design, accessibility, and reliability.\n\nThis project represents one of the user\'s most advanced and innovative developments, combining IoT hardware integration, embedded systems programming, and intelligent assistive software into a single wearable technology solution focused on improving accessibility for the visually impaired community.',
-      technologies: ['IoT', 'Sensors', 'Arduino IDE', 'C++', 'Android Studio', 'Java', 'Ultrasonic Sensors', 'Voice Feedback System', 'Vibration Feedback System', 'Wearable Assistive Technology'],
-      image: '/images/blind-tech-main.png',
+      title: 'Blind Assistive Head Tech (BAHT)',
+      description: 'Independently conceptualized, designed, built, and tested wearable assistive headband using ESP32, embedded C++, 4-axis ultrasonic transducers, directional haptic feedback, and real-time voice guidance to detect hazards up to 200cm.',
+      fullDescription: 'TITLE OF THE INVENTION:\nA Wearable Obstacle Detection and Voice-Guided Navigation Headband for Visually Impaired Individuals\n\nOVERVIEW & PROJECT BACKGROUND:\nBAHT (Blind Assistive Head Tech) is an advanced wearable assistive device designed to help visually impaired individuals navigate more safely by detecting obstacles and providing directional guidance through haptic feedback and voice assistance.\n\nI independently conceptualized, designed, developed, and tested the invention. The system utilizes an ESP32 microcontroller, sensors, embedded C++, haptic motors, and voice guidance. Beyond building the prototype, I conducted live usability testing with visually impaired users to evaluate how the device performs during actual real-world navigation.\n\nPROGRESS BEYOND ACADEMIC PROTOTYPE:\nThe project has progressed significantly beyond an academic prototype:\n• Presented BAHT to the Persons with Disability Affairs Office (PDAO) Caloocan City.\n• Presented and reviewed by the National Council on Disability Affairs (NCDA).\n• Currently completing requirements for a DOST-TAPI funding application under the GIA-Galing Program, with the goal of supporting further development, patenting, commercialization, and nationwide promotion of the technology.\n\nTECHNICAL FIELD & PROBLEM STATEMENT:\nTraditional mobility aids such as white canes can only detect obstacles at ground level within a physical sweep radius, leaving users vulnerable to head-height hazards, overhanging branches/structures, or rapidly approaching obstacles. Guide dogs require extensive training and high maintenance costs. BAHT provides a low-profile, non-intrusive wearable headband offering 360-degree spatial awareness, real-time proximity alerts, directional tactile cues, localized acoustic feedback, and hands-free, voice-activated AI route navigation.\n\nSYSTEM ARCHITECTURE & HARDWARE INTEGRATION:\n• Central Intelligence: ESP32 Microcontroller coordinating sensor trigger/echo cycles, algorithmic distance computations, voice parsing, and signal filtering.\n• Input Stage: 4 independent ultrasonic transducers (Front, Left, Right, and Downward-facing for ground-level drop-offs and low obstacles up to 200 cm) + built-in microphone array.\n• Output Stage 1 (Voice Guidance): I2C Digital-to-Analog Converter (DAC) coupled with an Audio Amplifier driving an integrated speaker module for spoken vocal distance announcements, high-priority danger alerts, and conversational navigation.\n• Output Stage 2 (Tactile & Acoustic Directional Alerts): Matrix of independent Haptic Motor Drivers mapped to each sensor zone + PWM-driven Localized Passive Buzzers for spatialized acoustic tracking.\n• Connectivity & Navigation: Integrated GPS module and wireless network transceiver (Wi-Fi/Cellular/Bluetooth) for live mapping, points of interest (POIs), and Conversational AI / LLM integration.\n• Power Management: Rechargeable Lithium-Ion (Li-ion) battery regulated by an onboard charging protection circuit.\n\nDYNAMIC DECISION MATRIX:\n• Critical Safety Zone (d < 60 cm): Bypasses standard tracking to broadcast a continuous, high-priority "DANGER" auditory alert, triggers continuous strong vibration from the corresponding directional haptic motor, and sounds rapid high-frequency beeps.\n• Standard Tracking Range (60 cm ≤ d ≤ 200 cm):\n  - Object is Far (150 cm - 200 cm): Weak vibration + slow, low-frequency pulsing beep.\n  - Object is Approaching (60 cm - 150 cm): Dynamically scales to moderate vibration + faster beeping pulse + real-time spoken numerical distance (e.g., "100 cm").\n\nCONVERSATIONAL AI & TURN-BY-TURN NAVIGATION:\n• Spoken Destination Queries: Parses spoken user destinations (e.g., "I want to go to Metroplaza Malaria"), queries geographic reference points, and verifies with the user before locking coordinates.\n• Live Orientation: Delivers real-time telemetry audio commands (e.g., "After 40 meters, turn left").\n• Location Interruption Button: Physical chassis button immediately prompts the system to query GPS and announce the user\'s current spatial position aloud.',
+      technologies: ['ESP32', 'Embedded C++', 'IoT', 'Ultrasonic Array', 'Haptic Motors', 'I2C DAC Audio', 'GPS Navigation', 'Arduino IDE', 'Android Studio', 'Java'],
+      image: '/images/blind-tech-landscape-04-thumb.jpg',
       video: '/videos/projects/blind-tech-video-landscape-thumb.webm',
       videoThumbnail: '/images/blind-tech-thumb.png',
       github: 'https://github.com/JONTECH1999/Blind-Assistive-Head-Tech',
@@ -55,6 +56,35 @@ const Projects: React.FC = () => {
       facebook: 'https://web.facebook.com/iccbscsdept/posts/pfbid02w73f7anrUwk8NEDMaPTjtiLuqtwQSxgp8jdzY8ozXhj9TkFuc8DYJP7cooZrMC4Ll',
       category: 'React',
       media: [
+        // ===== INSTITUTIONAL & DEFENSE MILESTONES =====
+        {
+          type: 'image',
+          src: '/images/symposium-presentation.jpg',
+          thumbnail: '/images/symposium-presentation.jpg',
+          label: 'Research Symposium Presentation',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/pdao-presentation.jpg',
+          thumbnail: '/images/pdao-presentation.jpg',
+          label: 'PDAO Caloocan City Presentation',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/ncda-presentation.jpg',
+          thumbnail: '/images/ncda-presentation.jpg',
+          label: 'NCDA National Presentation',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/thesis-presentation.jpg',
+          thumbnail: '/images/thesis-presentation.jpg',
+          label: 'Bachelor Thesis Defense',
+          orientation: 'landscape',
+        },
         // ===== LANDSCAPE IMAGES (Overview/Hero) =====
         {
           type: 'image',
@@ -718,6 +748,13 @@ const Projects: React.FC = () => {
     activeFilter === 'all' ? true : project.category === activeFilter
   );
 
+  const flagshipProject = projects.find((project) => project.id === 1);
+  const showFlagship = Boolean(
+    flagshipProject &&
+    (activeFilter === 'all' || flagshipProject.category.toLowerCase() === activeFilter.toLowerCase())
+  );
+  const otherProjects = filteredProjects.filter((project) => project.id !== 1);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -729,22 +766,22 @@ const Projects: React.FC = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -100 },
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { 
-        duration: 0.8,
+        duration: 0.6,
+        ease: 'easeOut',
       },
     },
     exit: {
       opacity: 0,
-      x: 100,
-      scale: 0.95,
-      rotate: 2,
+      y: -20,
+      scale: 0.98,
       transition: { 
-        duration: 0.6,
+        duration: 0.4,
       },
     },
   };
@@ -789,230 +826,257 @@ const Projects: React.FC = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project) => {
-              const hasVideo = Boolean(project.video || project.media?.some(m => m.type === 'video'));
-              const mediaCount = project.media?.length || 0;
-              const firstGalleryImage = project.media?.find((media) => media.type === 'image');
-              const previewImage = firstGalleryImage?.thumbnail || firstGalleryImage?.src || project.videoThumbnail || project.image || '/images/placeholder.png';
+        {/* Flagship Project Spotlight (Full Viewport Capstone Thesis & Symposium Presentation) */}
+        {showFlagship && flagshipProject && (
+          <FlagshipProject
+            project={flagshipProject}
+            onSelectProject={setSelectedProject}
+            onOpenMediaModal={(projectId, index) => {
+              setMediaModalProjectId(projectId);
+              setMediaModalIndex(index);
+              setMediaModalOpen(true);
+            }}
+          />
+        )}
 
-              return (
-                <motion.div
-                  key={project.id}
-                  variants={itemVariants}
-                  exit="exit"
-                  layout
-                  whileHover={{ y: -8 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-                  className="glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-[#c29f74]/40 hover:shadow-2xl hover:shadow-[#c29f74]/10 flex flex-col justify-between transition-colors duration-300 group"
-                >
-                  {/* Top Media Preview Container */}
-                  <div className="relative aspect-video w-full overflow-hidden bg-slate-900/60">
-                    <img
-                      src={previewImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/images/placeholder.png';
-                      }}
-                    />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+        {/* Other Projects Showcase (Horizontal Split Layout) */}
+        {otherProjects.length > 0 && (
+          <div className="mt-8">
+            {showFlagship && (
+              <div className="flex items-center gap-4 mb-12">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c29f74]/30 to-transparent"></div>
+                <div className="text-center px-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                    Other Featured Engineering Projects
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-white/60 mt-1">
+                    Enterprise web applications, medical records management, landing pages, and CRUD systems
+                  </p>
+                </div>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c29f74]/30 to-transparent"></div>
+              </div>
+            )}
 
-                    {/* Top Badges */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#b88755]/90 text-white shadow-lg backdrop-blur-md">
-                        {project.category}
-                      </span>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ margin: '-100px' }}
+              className="flex flex-col gap-10 md:gap-14 max-w-6xl mx-auto"
+            >
+              <AnimatePresence mode="wait">
+                {otherProjects.map((project, index) => {
+                  const hasVideo = Boolean(project.video || project.media?.some(m => m.type === 'video'));
+                  const mediaCount = project.media?.length || 0;
+                  const firstGalleryImage = project.media?.find((media) => media.type === 'image');
+                  const previewImage = firstGalleryImage?.thumbnail || firstGalleryImage?.src || project.videoThumbnail || project.image || '/images/placeholder.png';
+                  const isEven = index % 2 === 0;
 
-                      {mediaCount > 1 && (
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setMediaModalProjectId(project.id);
-                            setMediaModalIndex(0);
-                            setMediaModalOpen(true);
+                  return (
+                    <motion.div
+                      key={project.id}
+                      variants={itemVariants}
+                      exit="exit"
+                      layout
+                      whileHover={{ y: -6 }}
+                      transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                      className={`glass-effect rounded-2xl lg:rounded-3xl overflow-hidden border border-white/10 hover:border-[#c29f74]/40 hover:shadow-2xl hover:shadow-[#c29f74]/15 transition-all duration-300 group flex flex-col ${
+                        isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                      } items-stretch`}
+                    >
+                      {/* Media Preview Showcase Side */}
+                      <div className="w-full lg:w-5/12 xl:w-1/2 relative overflow-hidden bg-slate-900/60 min-h-[260px] sm:min-h-[320px] lg:min-h-full flex items-center justify-center">
+                        <img
+                          src={previewImage}
+                          alt={project.title}
+                          className="w-full h-full object-cover min-h-[260px] sm:min-h-[320px] group-hover:scale-105 transition-transform duration-700 ease-out"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/images/placeholder.png';
                           }}
-                          className="pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-black/60 hover:bg-black/80 text-white/90 backdrop-blur-md transition-colors cursor-pointer border border-white/10"
-                          title="View Media Gallery"
-                        >
-                          <FiImage size={12} />
-                          <span>{mediaCount} items</span>
-                        </button>
-                      )}
-                    </div>
+                        />
+                        
+                        {/* Dark gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent lg:bg-gradient-to-r lg:from-slate-950/40 lg:to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
 
-                    {/* Prominent Center Play Button if Video Available */}
-                    {hasVideo && (
-                      <div className="absolute inset-0 flex items-center justify-center z-10">
-                        <motion.button
-                          type="button"
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
-                          onClick={() => {
-                            if (project.media && project.media.length > 0) {
-                              const vidIdx = project.media.findIndex(m => m.type === 'video');
-                              setMediaModalProjectId(project.id);
-                              setMediaModalIndex(vidIdx >= 0 ? vidIdx : 0);
-                              setMediaModalOpen(true);
-                            } else {
-                              setSelectedProject(project);
-                            }
-                          }}
-                          className="w-14 h-14 rounded-full bg-gradient-to-r from-[#c29f74] to-[#a88154] flex items-center justify-center text-white shadow-xl shadow-[#c29f74]/30 border-2 border-white/80 group-hover:shadow-[#c29f74]/60 transition-all cursor-pointer"
-                          aria-label="Play Video Demo"
-                        >
-                          <FiPlay size={22} className="ml-1 text-white" />
-                        </motion.button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-[#a88154] dark:group-hover:text-[#dfbe95] transition-colors line-clamp-1">
-                        {project.title}
-                      </h3>
-
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 leading-relaxed mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
-
-                      {/* Tech Stack Pills */}
-                      <div className="flex flex-wrap gap-1.5 mb-5">
-                        {project.technologies.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="text-[11px] font-medium px-2 py-0.5 rounded-md"
-                            style={{
-                              backgroundColor: 'rgba(194, 159, 116, 0.12)',
-                              color: 'var(--color-primary)',
-                              border: '1px solid rgba(194, 159, 116, 0.25)',
-                            }}
-                          >
-                            {tech}
+                        {/* Floating Badges */}
+                        <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+                          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#b88755]/90 text-white shadow-lg backdrop-blur-md">
+                            {project.category}
                           </span>
-                        ))}
-                        {project.technologies.length > 4 && (
-                          <span className="text-[11px] font-medium px-1.5 py-0.5 rounded-md text-slate-500 dark:text-white/40">
-                            +{project.technologies.length - 4} more
-                          </span>
+
+                          {mediaCount > 1 && (
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setMediaModalProjectId(project.id);
+                                setMediaModalIndex(0);
+                                setMediaModalOpen(true);
+                              }}
+                              className="pointer-events-auto flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-black/60 hover:bg-black/80 text-white/90 backdrop-blur-md transition-colors cursor-pointer border border-white/15"
+                              title="View Media Gallery"
+                            >
+                              <FiImage size={12} />
+                              <span>{mediaCount} items</span>
+                            </button>
+                          )}
+                        </div>
+
+                        {/* Prominent Play Button if Video Available */}
+                        {hasVideo && (
+                          <div className="absolute inset-0 flex items-center justify-center z-10">
+                            <motion.button
+                              type="button"
+                              whileHover={{ scale: 1.15 }}
+                              whileTap={{ scale: 0.9 }}
+                              onClick={() => {
+                                if (project.media && project.media.length > 0) {
+                                  const vidIdx = project.media.findIndex(m => m.type === 'video');
+                                  setMediaModalProjectId(project.id);
+                                  setMediaModalIndex(vidIdx >= 0 ? vidIdx : 0);
+                                  setMediaModalOpen(true);
+                                } else {
+                                  setSelectedProject(project);
+                                }
+                              }}
+                              className="w-16 h-16 rounded-full bg-gradient-to-r from-[#c29f74] to-[#a88154] flex items-center justify-center text-white shadow-2xl shadow-[#c29f74]/40 border-2 border-white/90 group-hover:shadow-[#c29f74]/70 transition-all cursor-pointer"
+                              aria-label="Play Video Demo"
+                              title="Watch Video Demo"
+                            >
+                              <FiPlay size={24} className="ml-1 text-white" />
+                            </motion.button>
+                          </div>
                         )}
                       </div>
-                    </div>
 
-                    {/* Interactive Action Bar */}
-                    <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between gap-2">
-                      <motion.button
-                        type="button"
-                        onClick={() => setSelectedProject(project)}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold bg-[#b88755] hover:bg-[#a88154] text-white shadow-md shadow-[#c29f74]/20 transition-all cursor-pointer"
-                      >
-                        <FiInfo size={14} />
-                        <span>Case Study</span>
-                      </motion.button>
+                      {/* Content / Narrative Side */}
+                      <div className="w-full lg:w-7/12 xl:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                        <div>
+                          {/* Project Index Eyebrow */}
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-xs uppercase tracking-wider font-bold text-[#b88755] dark:text-[#dfbe95]">
+                              Project 0{index + 2}
+                            </span>
+                            <div className="h-px flex-1 bg-gradient-to-r from-[#c29f74]/30 to-transparent"></div>
+                          </div>
 
-                      {hasVideo && (
-                        <motion.button
-                          type="button"
-                          onClick={() => {
-                            if (project.media && project.media.length > 0) {
-                              const vidIdx = project.media.findIndex(m => m.type === 'video');
-                              setMediaModalProjectId(project.id);
-                              setMediaModalIndex(vidIdx >= 0 ? vidIdx : 0);
-                              setMediaModalOpen(true);
-                            } else {
-                              setSelectedProject(project);
-                            }
-                          }}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="flex items-center gap-1.5 py-2 px-2.5 rounded-lg text-xs font-semibold text-[#a88154] dark:text-[#dfbe95] bg-[#c29f74]/10 hover:bg-[#c29f74]/20 border border-[#c29f74]/30 transition-all cursor-pointer"
-                          title="Watch Demo Video"
-                        >
-                          <FiPlay size={13} />
-                          <span className="hidden sm:inline">Demo</span>
-                        </motion.button>
-                      )}
-
-                      {/* Icon Links */}
-                      <div className="flex items-center gap-1">
-                        {project.github && project.github !== '#' && (
-                          <motion.a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.15, y: -2 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="p-2 rounded-lg text-slate-600 dark:text-white/70 hover:text-white hover:bg-white/10 transition-colors"
-                            title="GitHub Repository"
+                          {/* Title */}
+                          <h3
+                            onClick={() => setSelectedProject(project)}
+                            className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[#a88154] dark:group-hover:text-[#dfbe95] transition-colors cursor-pointer"
                           >
-                            <FiGithub size={16} />
-                          </motion.a>
-                        )}
+                            {project.title}
+                          </h3>
 
-                        {project.live && project.live !== '#' && (
-                          <motion.a
-                            href={project.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.15, y: -2 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="p-2 rounded-lg text-[#c29f74] hover:text-[#dfbe95] hover:bg-white/10 transition-colors"
-                            title="Live Demo Website"
-                          >
-                            <FiExternalLink size={16} />
-                          </motion.a>
-                        )}
+                          {/* Description */}
+                          <p className="text-sm sm:text-base text-slate-600 dark:text-white/75 leading-relaxed mb-6">
+                            {project.description}
+                          </p>
 
-                        {project.youtube && (
-                          <motion.a
-                            href={project.youtube}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.15, y: -2 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="p-2 rounded-lg text-red-500 hover:text-red-400 hover:bg-white/10 transition-colors"
-                            title="YouTube Video"
-                          >
-                            <FaYoutube size={16} />
-                          </motion.a>
-                        )}
+                          {/* Tech Stack Chips */}
+                          <div className="mb-6">
+                            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-white/40 mb-2.5">
+                              Technologies
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {project.technologies.slice(0, 6).map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="text-xs font-medium px-2.5 py-1 rounded-lg bg-[#c29f74]/10 text-[#a88154] dark:text-[#dfbe95] border border-[#c29f74]/20"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                              {project.technologies.length > 6 && (
+                                <span className="text-xs font-medium px-2 py-1 rounded-lg text-slate-500 dark:text-white/50 bg-slate-100 dark:bg-white/5">
+                                  +{project.technologies.length - 6} more
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
 
-                        {project.facebook && (
-                          <motion.a
-                            href={project.facebook}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.15, y: -2 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="p-2 rounded-lg text-blue-500 hover:text-blue-400 hover:bg-white/10 transition-colors"
-                            title="Facebook Post"
+                        {/* Bottom Action Area */}
+                        <div className="pt-6 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
+                          <motion.button
+                            type="button"
+                            onClick={() => setSelectedProject(project)}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold bg-gradient-to-r from-[#b88755] to-[#a88154] hover:from-[#a88154] hover:to-[#967045] text-white shadow-lg shadow-[#c29f74]/25 transition-all cursor-pointer"
                           >
-                            <FaFacebook size={16} />
-                          </motion.a>
-                        )}
+                            <FiInfo size={16} />
+                            <span>Case Study</span>
+                            <FiArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                          </motion.button>
+
+                          {/* Icon Links */}
+                          <div className="flex items-center gap-2">
+                            {project.github && project.github !== '#' && (
+                              <motion.a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.1, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="p-2.5 rounded-xl text-slate-700 dark:text-white/80 hover:text-white hover:bg-slate-800 dark:hover:bg-white/10 transition-colors border border-slate-300 dark:border-white/10"
+                                title="GitHub Repository"
+                              >
+                                <FiGithub size={18} />
+                              </motion.a>
+                            )}
+
+                            {project.live && project.live !== '#' && (
+                              <motion.a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.1, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="p-2.5 rounded-xl text-[#c29f74] hover:text-[#dfbe95] hover:bg-[#c29f74]/15 transition-colors border border-[#c29f74]/30"
+                                title="Live Demo Website"
+                              >
+                                <FiExternalLink size={18} />
+                              </motion.a>
+                            )}
+
+                            {project.youtube && (
+                              <motion.a
+                                href={project.youtube}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.1, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="p-2.5 rounded-xl text-red-500 hover:text-red-400 hover:bg-red-500/10 transition-colors border border-red-500/20"
+                                title="YouTube Video"
+                              >
+                                <FaYoutube size={18} />
+                              </motion.a>
+                            )}
+
+                            {project.facebook && (
+                              <motion.a
+                                href={project.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.1, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="p-2.5 rounded-xl text-blue-500 hover:text-blue-400 hover:bg-blue-500/10 transition-colors border border-blue-500/20"
+                                title="Facebook Post"
+                              >
+                                <FaFacebook size={18} />
+                              </motion.a>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </motion.div>
+          </div>
+        )}
       </div>
 
       {/* Project Modal */}

@@ -40,6 +40,7 @@ const Contact: React.FC = () => {
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       if (!serviceId || !templateId) {
         setErrorMessage('Email service is not properly configured. Please contact support.');
@@ -50,11 +51,18 @@ const Contact: React.FC = () => {
         serviceId,
         templateId,
         {
+          name: formData.name,
           from_name: formData.name,
+          email: formData.email,
           from_email: formData.email,
           to_email: 'aljonrisasalonzo@gmail.com',
           message: formData.message,
-        }
+          time: new Date().toLocaleString('en-US', {
+            dateStyle: 'medium',
+            timeStyle: 'short',
+          }),
+        },
+        publicKey
       );
 
       if (result.status === 200) {
@@ -66,9 +74,10 @@ const Contact: React.FC = () => {
           setIsSubmitted(false);
         }, 5000);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Email sending failed:', error);
-      setErrorMessage('Failed to send message. Please try again.');
+      const detail = error?.text || error?.message || (typeof error === 'string' ? error : '');
+      setErrorMessage(detail ? `Failed to send: ${detail}` : 'Failed to send message. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -253,9 +262,20 @@ const Contact: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-500/20 border border-red-500/50 text-red-600 dark:text-red-400 rounded-lg text-sm"
+                    className="p-4 bg-red-500/20 border border-red-500/50 text-red-600 dark:text-red-400 rounded-lg text-sm flex flex-col gap-2"
                   >
-                    {errorMessage}
+                    <span>{errorMessage}</span>
+                    <a
+                      href={`mailto:aljonrisasalonzo@gmail.com?subject=${encodeURIComponent(
+                        `Portfolio Inquiry from ${formData.name || 'Visitor'}`
+                      )}&body=${encodeURIComponent(
+                        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+                      )}`}
+                      className="inline-flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-[#c29f74] to-[#dfbe95] text-slate-900 font-semibold rounded-lg hover:opacity-90 transition-opacity w-fit mt-1 text-xs"
+                    >
+                      <FiMail size={16} />
+                      Send directly via your Email Client
+                    </a>
                   </motion.div>
                 )}
 
