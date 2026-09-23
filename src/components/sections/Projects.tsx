@@ -68,14 +68,49 @@ const Projects: React.FC = () => {
           type: 'image',
           src: '/images/pdao-presentation.jpg',
           thumbnail: '/images/pdao-presentation.jpg',
-          label: 'PDAO Caloocan City Presentation',
+          label: 'PDAO Caloocan Presentation',
           orientation: 'landscape',
         },
         {
           type: 'image',
-          src: '/images/ncda-presentation.jpg',
-          thumbnail: '/images/ncda-presentation.jpg',
-          label: 'NCDA National Presentation',
+          src: '/images/pdao-presentation 1.jpeg',
+          thumbnail: '/images/pdao-presentation 1.jpeg',
+          label: 'PDAO Caloocan Presentation 1',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/ncda-presentation 1.jpeg',
+          thumbnail: '/images/ncda-presentation 1.jpeg',
+          label: 'NCDA Presentation 1',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/ncda-presentation 2.jpeg',
+          thumbnail: '/images/ncda-presentation 2.jpeg',
+          label: 'NCDA Presentation 2',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/ncda-presentation 3.jpeg',
+          thumbnail: '/images/ncda-presentation 3.jpeg',
+          label: 'NCDA Presentation 3',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/ncda-presentation 4.jpeg',
+          thumbnail: '/images/ncda-presentation 4.jpeg',
+          label: 'NCDA Presentation 4',
+          orientation: 'landscape',
+        },
+        {
+          type: 'image',
+          src: '/images/ncda-presentation 5.jpeg',
+          thumbnail: '/images/ncda-presentation 5.jpeg',
+          label: 'NCDA Presentation 5',
           orientation: 'landscape',
         },
         {
@@ -84,6 +119,120 @@ const Projects: React.FC = () => {
           thumbnail: '/images/thesis-presentation.jpg',
           label: 'Bachelor Thesis Defense',
           orientation: 'landscape',
+        },
+        // ===== ACTUAL BLIND USER TESTING (Photos & Field Trials) =====
+        {
+          type: 'image',
+          src: '/images/Visually Impaired Testing7.jpg',
+          thumbnail: '/images/Visually Impaired Testing7.jpg',
+          label: 'Blind User Testing - Trial 07 (Real-World Walking Test)',
+          orientation: 'portrait',
+        },
+        {
+          type: 'image',
+          src: '/images/Visually Impaired Testing8.jpg',
+          thumbnail: '/images/Visually Impaired Testing8.jpg',
+          label: 'Blind User Testing - Trial 08 (Obstacle Response)',
+          orientation: 'portrait',
+        },
+        {
+          type: 'image',
+          src: '/images/Visually Impaired Testing9.jpg',
+          thumbnail: '/images/Visually Impaired Testing9.jpg',
+          label: 'Blind User Testing - Trial 09 (Wearable Comfort & Feedback)',
+          orientation: 'portrait',
+        },
+        {
+          type: 'image',
+          src: '/images/Visually Impaired Testing10.jpg',
+          thumbnail: '/images/Visually Impaired Testing10.jpg',
+          label: 'Blind User Testing - Trial 10 (Haptic Directional Verification)',
+          orientation: 'portrait',
+        },
+        {
+          type: 'image',
+          src: '/images/Visually Impaired Testing13.jpg',
+          thumbnail: '/images/Visually Impaired Testing13.jpg',
+          label: 'Blind User Testing - Trial 13 (Field Navigation Trial)',
+          orientation: 'portrait',
+        },
+        // ===== ACTUAL BLIND USER TESTING VIDEOS =====
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing1.mp4',
+          thumbnail: '/images/Visually Impaired Testing7.jpg',
+          label: 'Blind User Testing Video 01 - Live Obstacle Detection Test',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing2.mp4',
+          thumbnail: '/images/Visually Impaired Testing8.jpg',
+          label: 'Blind User Testing Video 02 - Walking Navigation Trial',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing3.mp4',
+          thumbnail: '/images/Visually Impaired Testing9.jpg',
+          label: 'Blind User Testing Video 03 - Live User Evaluation',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing4.mp4',
+          thumbnail: '/images/Visually Impaired Testing10.jpg',
+          label: 'Blind User Testing Video 04 - Pathway Testing',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing5.mp4',
+          thumbnail: '/images/Visually Impaired Testing13.jpg',
+          label: 'Blind User Testing Video 05 - Directional Haptic Alerts',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing6.mp4',
+          thumbnail: '/images/Visually Impaired Testing7.jpg',
+          label: 'Blind User Testing Video 06 - Comprehensive Field Trial',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing11.mp4',
+          thumbnail: '/images/Visually Impaired Testing8.jpg',
+          label: 'Blind User Testing Video 11 - Hazard & Drop-off Detection',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing12.mp4',
+          thumbnail: '/images/Visually Impaired Testing9.jpg',
+          label: 'Blind User Testing Video 12 - Real-Time Sensor Tracking',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing14.mp4',
+          thumbnail: '/images/Visually Impaired Testing10.jpg',
+          label: 'Blind User Testing Video 14 - Independent User Navigation',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing15.mp4',
+          thumbnail: '/images/Visually Impaired Testing13.jpg',
+          label: 'Blind User Testing Video 15 - Voice Guidance Feedback',
+          orientation: 'portrait',
+        },
+        {
+          type: 'video',
+          src: '/images/Visually Impaired Testing16.mp4',
+          thumbnail: '/images/Visually Impaired Testing7.jpg',
+          label: 'Blind User Testing Video 16 - Outdoor Usability Run',
+          orientation: 'portrait',
         },
         // ===== LANDSCAPE IMAGES (Overview/Hero) =====
         {
@@ -939,11 +1088,11 @@ const Projects: React.FC = () => {
                                   setSelectedProject(project);
                                 }
                               }}
-                              className="w-16 h-16 rounded-full bg-gradient-to-r from-[#c29f74] to-[#a88154] flex items-center justify-center text-white shadow-2xl shadow-[#c29f74]/40 border-2 border-white/90 group-hover:shadow-[#c29f74]/70 transition-all cursor-pointer"
+                              className="w-15 h-15 rounded-full bg-black/25 hover:bg-black/45 backdrop-blur-[2px] flex items-center justify-center text-white border-2 border-white/70 hover:border-[#c29f74] group-hover:scale-110 shadow-xl transition-all cursor-pointer"
                               aria-label="Play Video Demo"
                               title="Watch Video Demo"
                             >
-                              <FiPlay size={24} className="ml-1 text-white" />
+                              <FiPlay size={22} className="ml-1 text-white drop-shadow-md" />
                             </motion.button>
                           </div>
                         )}

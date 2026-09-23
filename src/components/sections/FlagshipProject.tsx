@@ -52,8 +52,21 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
   onSelectProject,
   onOpenMediaModal,
 }) => {
+  interface SubSlide {
+    label: string;
+    src: string;
+  }
+
+  interface HighlightMilestone {
+    src: string;
+    title: string;
+    subtitle: string;
+    tag: string;
+    subSlides?: SubSlide[];
+  }
+
   // 4 Curated Key Milestones for Thesis, Symposium, PDAO & NCDA
-  const highlightImages = [
+  const highlightImages: HighlightMilestone[] = [
     {
       src: '/images/symposium-presentation.jpg',
       title: 'Research Symposium Presentation',
@@ -61,16 +74,40 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
       tag: 'Symposium',
     },
     {
-      src: '/images/pdao-presentation.jpg',
-      title: 'PDAO Caloocan City Presentation',
+      src: '/images/pdao-presentation 1.jpeg',
+      title: 'PDAO Caloocan Presentation',
       subtitle: 'Persons with Disability Affairs Office Presentation & LOI Endorsement',
       tag: 'PDAO Caloocan',
+      subSlides: [
+        { label: 'Overview', src: '/images/pdao-presentation.jpg' },
+        { label: 'Part 1', src: '/images/pdao-presentation 1.jpeg' },
+      ],
     },
     {
-      src: '/images/ncda-presentation.jpg',
-      title: 'NCDA National Presentation',
-      subtitle: 'National Council on Disability Affairs Defense & DOST-TAPI Roadmap',
+      src: '/images/ncda-presentation 1.jpeg',
+      title: 'NCDA Presentation (Parts 1–5)',
+      subtitle: 'National Council on Disability Affairs Defense & Technical Review',
       tag: 'NCDA National',
+      subSlides: [
+        { label: 'Part 1', src: '/images/ncda-presentation 1.jpeg' },
+        { label: 'Part 2', src: '/images/ncda-presentation 2.jpeg' },
+        { label: 'Part 3', src: '/images/ncda-presentation 3.jpeg' },
+        { label: 'Part 4', src: '/images/ncda-presentation 4.jpeg' },
+        { label: 'Part 5', src: '/images/ncda-presentation 5.jpeg' },
+      ],
+    },
+    {
+      src: '/images/Visually Impaired Testing7.jpg',
+      title: 'Actual Blind User Testing',
+      subtitle: 'Real-World Usability, Obstacle Detection & Walking Trials with Visually Impaired Users',
+      tag: 'User Trials',
+      subSlides: [
+        { label: 'Trial 7', src: '/images/Visually Impaired Testing7.jpg' },
+        { label: 'Trial 8', src: '/images/Visually Impaired Testing8.jpg' },
+        { label: 'Trial 9', src: '/images/Visually Impaired Testing9.jpg' },
+        { label: 'Trial 10', src: '/images/Visually Impaired Testing10.jpg' },
+        { label: 'Trial 13', src: '/images/Visually Impaired Testing13.jpg' },
+      ],
     },
     {
       src: '/images/thesis-presentation.jpg',
@@ -115,7 +152,13 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
 
   // Jump to slide matching a highlight image
   const handleSelectHighlight = (highlightSrc: string) => {
-    const foundIdx = imageSlides.findIndex(slide => slide.src === highlightSrc || slide.thumbnail === highlightSrc);
+    const normalize = (path: string) => decodeURI(path).toLowerCase().replace(/\\/g, '/');
+    const target = normalize(highlightSrc);
+    const foundIdx = imageSlides.findIndex(slide => {
+      const sSrc = normalize(slide.src);
+      const sThumb = slide.thumbnail ? normalize(slide.thumbnail) : '';
+      return sSrc === target || sThumb === target;
+    });
     if (foundIdx >= 0) {
       setCurrentIndex(foundIdx);
     }
@@ -185,9 +228,8 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
               />
             </AnimatePresence>
 
-            {/* Gradient Overlays for High-End Cinematic Aesthetics */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/40 pointer-events-none"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/30 via-transparent to-slate-950/40 pointer-events-none"></div>
+            {/* Minimal edge gradient so images remain 100% visible & vibrant */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/25 pointer-events-none"></div>
 
             {/* Top Bar inside Media Viewer */}
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-none">
@@ -225,23 +267,23 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
               <FiChevronRight size={22} />
             </button>
 
-            {/* Video Play Button Overlay */}
+            {/* Transparent Video Play Button Overlay to see background image */}
             {hasVideo && (
               <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                 <motion.button
                   type="button"
-                  whileHover={{ scale: 1.15 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.94 }}
                   onClick={() => onOpenMediaModal(project.id, videoIndex >= 0 ? videoIndex : 0)}
-                  className="pointer-events-auto group/play flex items-center gap-3 px-5 py-3 rounded-full bg-black/75 hover:bg-gradient-to-r hover:from-[#c29f74] hover:to-[#a88154] text-white backdrop-blur-md border border-white/20 transition-all shadow-2xl cursor-pointer"
+                  className="pointer-events-auto group/play flex items-center gap-3 px-4 py-2 rounded-full bg-transparent hover:bg-black/30 text-white backdrop-blur-[1.5px] border border-white/40 hover:border-[#c29f74] transition-all shadow-xl cursor-pointer"
                   title="Watch Working Video Demonstration"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#c29f74] text-slate-950 flex items-center justify-center shadow-md group-hover/play:scale-110 transition-transform">
-                    <FiPlay size={18} className="ml-0.5 fill-current" />
+                  <div className="w-9 h-9 rounded-full bg-black/25 group-hover/play:bg-[#c29f74] text-white group-hover/play:text-slate-950 flex items-center justify-center border border-white/50 group-hover/play:border-[#c29f74] shadow-md group-hover/play:scale-110 transition-all">
+                    <FiPlay size={16} className="ml-0.5 fill-current" />
                   </div>
                   <div className="text-left pr-1">
-                    <div className="text-xs font-bold leading-tight">Watch Video Demo</div>
-                    <div className="text-[10px] text-white/70">Hardware & Sensor Proof</div>
+                    <div className="text-xs font-bold leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Watch Video Demo</div>
+                    <div className="text-[10px] text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Hardware & Sensor Proof</div>
                   </div>
                 </motion.button>
               </div>
@@ -439,21 +481,21 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
         </div>
       </div>
 
-      {/* 3. The 4 Highlight Showcase Images Section */}
+      {/* 3. The 5 Highlight Showcase Images Section */}
       <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#a88154] dark:text-[#dfbe95]">
-              Key Research & Institutional Milestones
+              Key Research & User Testing Milestones
             </span>
             <span className="text-xs text-slate-400 dark:text-white/40">• Click any milestone to view</span>
           </div>
           <span className="text-xs text-slate-500 dark:text-white/50 hidden sm:inline">
-            Symposium • PDAO Caloocan • NCDA • Thesis Defense
+            Symposium • PDAO Caloocan • NCDA • User Testing • Thesis Defense
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {highlightImages.map((highlight, hIdx) => (
             <motion.div
               key={highlight.title}
@@ -494,6 +536,35 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
                   <p className="text-[11px] text-slate-600 dark:text-white/70 line-clamp-2 leading-relaxed">
                     {highlight.subtitle}
                   </p>
+                  {highlight.subSlides && (
+                    <div className="flex items-center gap-1.5 mt-2.5 pt-2 border-t border-slate-200/60 dark:border-white/10" onClick={(e) => e.stopPropagation()}>
+                      <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-white/40">
+                        {highlight.subSlides.length > 2 ? 'Parts:' : 'Views:'}
+                      </span>
+                      <div className="flex flex-wrap gap-1">
+                        {highlight.subSlides.map((sub) => {
+                          const isActive = decodeURI(currentSlide.src).toLowerCase() === decodeURI(sub.src).toLowerCase();
+                          return (
+                            <button
+                              key={sub.src}
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleSelectHighlight(sub.src);
+                              }}
+                              className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
+                                isActive
+                                  ? 'bg-[#c29f74] text-slate-950 shadow-sm'
+                                  : 'bg-slate-200/80 dark:bg-white/10 hover:bg-[#c29f74]/30 text-slate-700 dark:text-white/80'
+                              }`}
+                            >
+                              {sub.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="mt-3 pt-2.5 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] text-slate-400 dark:text-white/40">
                   <span>Milestone 0{hIdx + 1}</span>
