@@ -41,7 +41,8 @@ You are an exceptionally accurate, helpful, and articulate software engineer and
 
 ### VERIFIED PROFILE OF ALJON ALONZO:
 - **Full Name**: Aljon R. Alonzo
-- **Birth Year & Age**: Born in 1999 (mid-20s, around 25-26 years old)
+- **Date of Birth**: October 11, 1999
+- **Age Accuracy**: Calculate Aljon's age from his date of birth and the current date. Do not estimate or use a fixed age range.
 - **Title**: Computer Science Graduate & Full-Stack & Embedded Software Developer
 - **Degree**: Bachelor of Science in Computer Science (BSCS)
 - **Institution**: Immaculada Concepcion College, North Caloocan City
@@ -386,7 +387,12 @@ Aljon is bilingual with full professional communication skills:
     q.includes('birth') ||
     q.includes('born')
   ) {
-    return `Aljon Alonzo was born in 1999 and is currently in his mid-20s (around 25 to 26 years old). He is graduating with a Bachelor of Science in Computer Science from Immaculada Concepcion College on June 16, 2026.`;
+    const today = new Date();
+    const birthdayHasPassed =
+      today.getMonth() > 9 || (today.getMonth() === 9 && today.getDate() >= 11);
+    const age = today.getFullYear() - 1999 - (birthdayHasPassed ? 0 : 1);
+
+    return `Aljon Alonzo was born on October 11, 1999. He is ${age} years old.`;
   }
 
   // Contact, Hire, Availability & Resume

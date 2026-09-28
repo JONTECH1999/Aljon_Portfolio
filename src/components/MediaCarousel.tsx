@@ -83,7 +83,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ media, title, initialInde
                 alt={currentItem.label || title}
                 className={`${getMediaClasses(currentItem)} bg-white dark:bg-slate-900`}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                  (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                 }}
               />
             ) : (
@@ -98,7 +98,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ media, title, initialInde
                   controlsList="nodownload"
                   onError={(e) => {
                     const video = e.target as HTMLVideoElement;
-                    video.poster = '/images/placeholder.png';
+                    video.poster = '/images/portfolio-video-thumbnail.png';
                   }}
                 >
                   {currentItem.src.endsWith('.webm') && (
@@ -159,7 +159,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ media, title, initialInde
                     alt={item.label || title} 
                     className="w-full h-full object-cover" 
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                      (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                     }}
                   />
                 ) : (

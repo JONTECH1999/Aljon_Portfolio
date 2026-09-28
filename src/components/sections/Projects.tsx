@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
       technologies: ['ESP32', 'Embedded C++', 'IoT', 'Ultrasonic Array', 'Haptic Motors', 'I2C DAC Audio', 'GPS Navigation', 'Arduino IDE', 'Android Studio', 'Java'],
       image: '/images/blind-tech-landscape-04-thumb.jpg',
       video: '/videos/projects/blind-tech-video-landscape-thumb.webm',
-      videoThumbnail: '/images/blind-tech-thumb.png',
+      videoThumbnail: '/images/blind-tech-video-landscape-thumb.png',
       github: 'https://github.com/JONTECH1999/Blind-Assistive-Head-Tech',
       live: '#',
       facebook: 'https://web.facebook.com/iccbscsdept/posts/pfbid02w73f7anrUwk8NEDMaPTjtiLuqtwQSxgp8jdzY8ozXhj9TkFuc8DYJP7cooZrMC4Ll',
@@ -940,7 +940,7 @@ const Projects: React.FC = () => {
                   const hasVideo = Boolean(project.video || project.media?.some(m => m.type === 'video'));
                   const mediaCount = project.media?.length || 0;
                   const firstGalleryImage = project.media?.find((media) => media.type === 'image');
-                  const previewImage = firstGalleryImage?.thumbnail || firstGalleryImage?.src || project.videoThumbnail || project.image || '/images/placeholder.png';
+                  const previewImage = firstGalleryImage?.thumbnail || firstGalleryImage?.src || project.videoThumbnail || project.image || '/images/portfolio-video-thumbnail.png';
                   const isEven = index % 2 === 0;
 
                   return (
@@ -962,7 +962,7 @@ const Projects: React.FC = () => {
                           alt={project.title}
                           className="w-full h-full object-cover min-h-[260px] sm:min-h-[320px] group-hover:scale-105 transition-transform duration-700 ease-out"
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                            (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                           }}
                         />
                         
@@ -1223,7 +1223,7 @@ const Projects: React.FC = () => {
                     alt={selectedProject.title}
                     className="w-full h-64 object-cover rounded-lg mb-6"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                      (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                     }}
                   />
                 )}

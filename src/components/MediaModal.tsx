@@ -239,7 +239,7 @@ const MediaModal: React.FC<MediaModalProps> = ({
                       alt={currentItem.label || title}
                       className={`rounded-lg object-contain ${currentItem.orientation === 'portrait' ? 'max-h-full w-auto' : 'max-w-full max-h-full'}`}
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                        (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                       }}
                     />
                   ) : (
@@ -255,7 +255,7 @@ const MediaModal: React.FC<MediaModalProps> = ({
                       className={`rounded-lg bg-black object-contain ${currentItem.orientation === 'portrait' ? 'max-h-full w-auto' : 'max-w-full max-h-full'}`}
                       onError={(e) => {
                         const video = e.target as HTMLVideoElement;
-                        video.poster = '/images/placeholder.png';
+                        video.poster = '/images/portfolio-video-thumbnail.png';
                       }}
                     >
                       {currentItem.src.endsWith('.webm') && (
@@ -339,7 +339,7 @@ const MediaModal: React.FC<MediaModalProps> = ({
                             alt={item.label}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                              (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                             }}
                           />
                         ) : (
@@ -349,7 +349,7 @@ const MediaModal: React.FC<MediaModalProps> = ({
                               alt={item.label}
                               className="w-full h-full object-cover"
                               onError={(e) => {
-                                (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                                (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                               }}
                             />
                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">

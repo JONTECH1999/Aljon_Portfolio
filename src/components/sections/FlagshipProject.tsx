@@ -223,7 +223,7 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
                 className="absolute inset-0 w-full h-full object-cover object-center"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                  (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                 }}
               />
             </AnimatePresence>
@@ -510,7 +510,7 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
                   alt={highlight.title}
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/placeholder.png';
+                    (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity"></div>
