@@ -47,76 +47,75 @@ interface FlagshipProjectProps {
   onOpenMediaModal: (projectId: number, index: number) => void;
 }
 
+interface SubSlide {
+  label: string;
+  src: string;
+}
+
+interface HighlightMilestone {
+  src: string;
+  title: string;
+  subtitle: string;
+  tag: string;
+  subSlides?: SubSlide[];
+}
+
+const highlightImages: HighlightMilestone[] = [
+  {
+    src: '/images/symposium-presentation.jpg',
+    title: 'Research Symposium Presentation',
+    subtitle: 'Invention Showcase & Public Academic Research Defense',
+    tag: 'Symposium',
+  },
+  {
+    src: '/images/pdao-presentation 1.jpeg',
+    title: 'PDAO Caloocan Presentation',
+    subtitle: 'Persons with Disability Affairs Office Presentation & LOI Endorsement',
+    tag: 'PDAO Caloocan',
+    subSlides: [
+      { label: 'Overview', src: '/images/pdao-presentation.jpg' },
+      { label: 'Part 1', src: '/images/pdao-presentation 1.jpeg' },
+    ],
+  },
+  {
+    src: '/images/ncda-presentation 1.jpeg',
+    title: 'NCDA Presentation (Parts 1–5)',
+    subtitle: 'National Council on Disability Affairs Defense & Technical Review',
+    tag: 'NCDA National',
+    subSlides: [
+      { label: 'Part 1', src: '/images/ncda-presentation 1.jpeg' },
+      { label: 'Part 2', src: '/images/ncda-presentation 2.jpeg' },
+      { label: 'Part 3', src: '/images/ncda-presentation 3.jpeg' },
+      { label: 'Part 4', src: '/images/ncda-presentation 4.jpeg' },
+      { label: 'Part 5', src: '/images/ncda-presentation 5.jpeg' },
+    ],
+  },
+  {
+    src: '/images/Visually Impaired Testing7.jpg',
+    title: 'Actual Blind User Testing',
+    subtitle: 'Real-World Usability, Obstacle Detection & Walking Trials with Visually Impaired Users',
+    tag: 'User Trials',
+    subSlides: [
+      { label: 'Trial 7', src: '/images/Visually Impaired Testing7.jpg' },
+      { label: 'Trial 8', src: '/images/Visually Impaired Testing8.jpg' },
+      { label: 'Trial 9', src: '/images/Visually Impaired Testing9.jpg' },
+      { label: 'Trial 10', src: '/images/Visually Impaired Testing10.jpg' },
+      { label: 'Trial 13', src: '/images/Visually Impaired Testing13.jpg' },
+    ],
+  },
+  {
+    src: '/images/thesis-presentation.jpg',
+    title: 'Bachelor Thesis Defense',
+    subtitle: 'Official Degree Defense, Live Hardware Evaluation & Panel Review',
+    tag: 'Thesis Defense',
+  },
+];
+
 const FlagshipProject: React.FC<FlagshipProjectProps> = ({
   project,
   onSelectProject,
   onOpenMediaModal,
 }) => {
-  interface SubSlide {
-    label: string;
-    src: string;
-  }
-
-  interface HighlightMilestone {
-    src: string;
-    title: string;
-    subtitle: string;
-    tag: string;
-    subSlides?: SubSlide[];
-  }
-
-  // 4 Curated Key Milestones for Thesis, Symposium, PDAO & NCDA
-  const highlightImages: HighlightMilestone[] = [
-    {
-      src: '/images/symposium-presentation.jpg',
-      title: 'Research Symposium Presentation',
-      subtitle: 'Invention Showcase & Public Academic Research Defense',
-      tag: 'Symposium',
-    },
-    {
-      src: '/images/pdao-presentation 1.jpeg',
-      title: 'PDAO Caloocan Presentation',
-      subtitle: 'Persons with Disability Affairs Office Presentation & LOI Endorsement',
-      tag: 'PDAO Caloocan',
-      subSlides: [
-        { label: 'Overview', src: '/images/pdao-presentation.jpg' },
-        { label: 'Part 1', src: '/images/pdao-presentation 1.jpeg' },
-      ],
-    },
-    {
-      src: '/images/ncda-presentation 1.jpeg',
-      title: 'NCDA Presentation (Parts 1–5)',
-      subtitle: 'National Council on Disability Affairs Defense & Technical Review',
-      tag: 'NCDA National',
-      subSlides: [
-        { label: 'Part 1', src: '/images/ncda-presentation 1.jpeg' },
-        { label: 'Part 2', src: '/images/ncda-presentation 2.jpeg' },
-        { label: 'Part 3', src: '/images/ncda-presentation 3.jpeg' },
-        { label: 'Part 4', src: '/images/ncda-presentation 4.jpeg' },
-        { label: 'Part 5', src: '/images/ncda-presentation 5.jpeg' },
-      ],
-    },
-    {
-      src: '/images/Visually Impaired Testing7.jpg',
-      title: 'Actual Blind User Testing',
-      subtitle: 'Real-World Usability, Obstacle Detection & Walking Trials with Visually Impaired Users',
-      tag: 'User Trials',
-      subSlides: [
-        { label: 'Trial 7', src: '/images/Visually Impaired Testing7.jpg' },
-        { label: 'Trial 8', src: '/images/Visually Impaired Testing8.jpg' },
-        { label: 'Trial 9', src: '/images/Visually Impaired Testing9.jpg' },
-        { label: 'Trial 10', src: '/images/Visually Impaired Testing10.jpg' },
-        { label: 'Trial 13', src: '/images/Visually Impaired Testing13.jpg' },
-      ],
-    },
-    {
-      src: '/images/thesis-presentation.jpg',
-      title: 'Bachelor Thesis Defense',
-      subtitle: 'Official Degree Defense, Live Hardware Evaluation & Panel Review',
-      tag: 'Thesis Defense',
-    },
-  ];
-
   // All image slides for the auto-animating hero showcase
   const imageSlides = project.media && project.media.length > 0 
     ? project.media.filter(m => m.type === 'image')
@@ -124,8 +123,28 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [highlightIndices, setHighlightIndices] = useState<Record<number, number>>({});
+  const touchStartX = useRef<number | null>(null);
+  const didSwipeHighlight = useRef(false);
   const slideDuration = 3800; // ms per slide
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setHighlightIndices((previous) => {
+        const next = { ...previous };
+        highlightImages.forEach((highlight, index) => {
+          const slideCount = highlight.subSlides?.length ?? 1;
+          if (slideCount > 1) {
+            next[index] = ((previous[index] ?? 0) + 1) % slideCount;
+          }
+        });
+        return next;
+      });
+    }, 4500);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   // Auto-play animation when page/card is on standby
   useEffect(() => {
@@ -488,7 +507,7 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-[#a88154] dark:text-[#dfbe95]">
               Key Research & User Testing Milestones
             </span>
-            <span className="text-xs text-slate-400 dark:text-white/40">• Click any milestone to view</span>
+            <span className="text-xs text-slate-400 dark:text-white/40">• Swipe images or tap a milestone to view</span>
           </div>
           <span className="text-xs text-slate-500 dark:text-white/50 hidden sm:inline">
             Symposium • PDAO Caloocan • NCDA • User Testing • Thesis Defense
@@ -496,33 +515,106 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-          {highlightImages.map((highlight, hIdx) => (
-            <motion.div
-              key={highlight.title}
-              whileHover={{ y: -6, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => handleSelectHighlight(highlight.src)}
-              className="glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-[#c29f74]/50 hover:shadow-xl hover:shadow-[#c29f74]/15 transition-all duration-300 cursor-pointer group flex flex-col justify-between"
-            >
+          {highlightImages.map((highlight, hIdx) => {
+            const slides = highlight.subSlides ?? [{ label: highlight.title, src: highlight.src }];
+            const slideIndex = highlightIndices[hIdx] ?? 0;
+            const miniSlide = slides[slideIndex] ?? slides[0];
+            const changeSlide = (direction: number) => {
+              const nextIndex = (slideIndex + direction + slides.length) % slides.length;
+              setHighlightIndices((previous) => ({ ...previous, [hIdx]: nextIndex }));
+              handleSelectHighlight(slides[nextIndex].src);
+            };
+
+            return (
+              <motion.div
+                key={highlight.title}
+                whileHover={{ y: -6, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  if (didSwipeHighlight.current) {
+                    didSwipeHighlight.current = false;
+                    return;
+                  }
+                  handleSelectHighlight(miniSlide.src);
+                }}
+                className="glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-[#c29f74]/50 hover:shadow-xl hover:shadow-[#c29f74]/15 transition-all duration-300 cursor-pointer group flex flex-col justify-between"
+              >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                <img
-                  src={highlight.src}
-                  alt={highlight.title}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
+                <div
+                  className="absolute inset-0 touch-pan-y"
+                  onTouchStart={(event) => {
+                    touchStartX.current = event.touches[0].clientX;
                   }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity"></div>
+                  onTouchEnd={(event) => {
+                    if (touchStartX.current === null) return;
+                    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+                    touchStartX.current = null;
+                    if (Math.abs(deltaX) < 40 || slides.length <= 1) return;
+
+                    event.stopPropagation();
+                    didSwipeHighlight.current = true;
+                    changeSlide(deltaX < 0 ? 1 : -1);
+                  }}
+                  onTouchCancel={() => {
+                    touchStartX.current = null;
+                  }}
+                >
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.img
+                      key={miniSlide.src}
+                      src={miniSlide.src}
+                      alt={miniSlide.label || highlight.title}
+                      initial={{ opacity: 0, scale: 1.03 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.35 }}
+                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
+                      onError={(event) => {
+                        (event.target as HTMLImageElement).src = '/images/portfolio-video-thumbnail.png';
+                      }}
+                    />
+                  </AnimatePresence>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity pointer-events-none"></div>
                 
                 {/* Highlight Tag */}
-                <div className="absolute top-2.5 left-2.5">
+                <div className="absolute top-2.5 left-2.5 pointer-events-none">
                   <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#b88755]/90 text-white shadow-md backdrop-blur-md">
                     {highlight.tag}
                   </span>
                 </div>
 
-                <div className="absolute bottom-2 right-2.5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-[11px] font-semibold text-[#dfbe95] bg-black/70 px-2 py-0.5 rounded-md backdrop-blur-md">
+                {slides.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      aria-label={`Previous ${highlight.tag} image`}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        changeSlide(-1);
+                      }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/65 hover:bg-black/85 text-white flex items-center justify-center border border-white/20 shadow-lg"
+                    >
+                      <FiChevronLeft size={18} />
+                    </button>
+                    <button
+                      type="button"
+                      aria-label={`Next ${highlight.tag} image`}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        changeSlide(1);
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/65 hover:bg-black/85 text-white flex items-center justify-center border border-white/20 shadow-lg"
+                    >
+                      <FiChevronRight size={18} />
+                    </button>
+                    <span className="absolute bottom-2 left-2.5 z-10 px-2 py-0.5 rounded-md bg-black/65 text-[10px] font-medium text-white/90 backdrop-blur-sm">
+                      {slideIndex + 1} / {slides.length}
+                    </span>
+                  </>
+                )}
+
+                <div className="absolute bottom-2 right-2.5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-[11px] font-semibold text-[#dfbe95] bg-black/70 px-2 py-0.5 rounded-md backdrop-blur-md pointer-events-none">
                   <span>Display</span>
                   <FiArrowRight size={11} />
                 </div>
@@ -550,6 +642,10 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
+                                const selectedIndex = slides.findIndex((slide) => slide.src === sub.src);
+                                if (selectedIndex >= 0) {
+                                  setHighlightIndices((previous) => ({ ...previous, [hIdx]: selectedIndex }));
+                                }
                                 handleSelectHighlight(sub.src);
                               }}
                               className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
@@ -571,8 +667,9 @@ const FlagshipProject: React.FC<FlagshipProjectProps> = ({
                   <span className="group-hover:text-[#c29f74] transition-colors font-medium">Click to Load →</span>
                 </div>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>
