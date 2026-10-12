@@ -19,6 +19,7 @@ interface MediaModalProps {
   onPrev: () => void;
   onNext: () => void;
   title: string;
+  autoPlay?: boolean;
 }
 
 const MediaModal: React.FC<MediaModalProps> = ({
@@ -29,6 +30,7 @@ const MediaModal: React.FC<MediaModalProps> = ({
   onPrev,
   onNext,
   title,
+  autoPlay = false,
 }) => {
   const { isDarkMode, themeConfig } = useTheme();
   const currentItem = media[currentIndex];
@@ -36,6 +38,13 @@ const MediaModal: React.FC<MediaModalProps> = ({
   const [dragX, setDragX] = React.useState(0);
   const [isDragging, setIsDragging] = React.useState(false);
   const [startX, setStartX] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!isOpen || !autoPlay || total <= 1) return;
+
+    const timeoutId = window.setTimeout(onNext, 4000);
+    return () => window.clearTimeout(timeoutId);
+  }, [autoPlay, currentIndex, isOpen, onNext, total]);
 
   // Handle mouse down on media
   const handleMouseDown = (e: React.MouseEvent) => {

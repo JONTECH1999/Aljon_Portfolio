@@ -29,6 +29,7 @@ interface Project {
   youtube?: string;
   category: string;
   media?: ProjectMedia[];
+  playGallery?: boolean;
 }
 
 const Projects: React.FC = () => {
@@ -39,9 +40,99 @@ const Projects: React.FC = () => {
   const [mediaModalOpen, setMediaModalOpen] = useState(false);
   const [mediaModalProjectId, setMediaModalProjectId] = useState<number | null>(null);
   const [mediaModalIndex, setMediaModalIndex] = useState(0);
+  const [mediaModalAutoPlay, setMediaModalAutoPlay] = useState(false);
 
 
   const projects: Project[] = [
+    {
+      id: 7,
+      title: 'ASCOVILLE Attendance & Membership Management Suite',
+      description: 'Serverless Google Workspace platform for membership records, rapid attendance check-ins, multi-shift scheduling, duty rotations, analytics, and AI-assisted roster management.',
+      fullDescription: 'ASCOVILLE Attendance & Membership Management Suite\n\nAn enterprise-grade single-page application and automated data pipeline designed to streamline membership tracking, gathering attendance check-ins, multi-shift schedule management, and duty rotation workflows. The platform runs in a serverless Google Workspace environment, using Google Sheets as its relational data store without recurring infrastructure costs.\n\nA specialized Fast Attendance kiosk provides fuzzy member search and one-touch status recording to reduce check-in bottlenecks during high-volume gatherings. The responsive frontend uses a glassmorphism design system with fluid font scaling, high-contrast modes, and a low-glare dark mode for mobile devices and field check-in tablets.\n\nMember profiles support more than 30 demographic and institutional data points, automatic data normalization, 30-day soft-delete recovery, and audit tracking. To support concurrent check-ins in a serverless runtime, the system uses in-memory array buffering, batched writes, and LockService concurrency control to reduce write collisions and execution-timeout risk.\n\nAdditional features include a Fair-Share Cleaners Rotation engine that balances member duty history, recurring shift schedules, Chart.js analytics, print-ready executive demographic reports with sign-off templates, and Clark AI—an embedded Gemini-powered assistant for natural-language queries and pre-validated roster change proposals.\n\nThis project demonstrates full-stack systems engineering, constrained-environment optimization, responsive interface design, and real-world process automation.',
+      technologies: ['Google Apps Script', 'JavaScript (ES6+)', 'HTML5', 'CSS3 Custom Properties', 'Google Sheets', 'Chart.js', 'LockService', 'Google Gemini API', 'Responsive Kiosk Design', 'Google Workspace'],
+      image: '/images/ascoville/dashboard_light.png',
+      github: 'https://github.com/JONTECH1999/ATTENDANCE_APPSCRIPT_UI.git',
+      live: 'https://script.google.com/macros/s/AKfycbyapJ0B3IGkEZtPESgmBEuRgclZ9x_nIvcTqBXW_KP5SICJZMPLGBcshw_sLqDLh217Lg/exec',
+      category: 'Google Apps Script',
+      playGallery: true,
+      media: [
+        {
+          type: 'image',
+          src: '/images/ascoville/dashboard_light.png',
+          label: 'Dashboard — Light Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/dashboard_dark.png',
+          label: 'Dashboard — Dark Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/members.png',
+          label: 'Member Management',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/members_dark.png',
+          label: 'Member Management — Dark Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/members_spreadsheet.png',
+          label: 'Member Data Spreadsheet',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/attendance_light.png',
+          label: 'Attendance — Light Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/attendance_dark.png',
+          label: 'Attendance — Dark Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/attendance_spreadsheet.png',
+          label: 'Attendance Data Spreadsheet',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/schedule_light.png',
+          label: 'Schedule — Light Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/schedule_dark.png',
+          label: 'Schedule — Dark Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/eventhistory_light.png',
+          label: 'Event History — Light Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/eventhistory_dark.png',
+          label: 'Event History — Dark Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/specialevent_light.png',
+          label: 'Special Event — Light Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/specialevent_dark.png',
+          label: 'Special Event — Dark Mode',
+        },
+        {
+          type: 'image',
+          src: '/images/ascoville/pc%20specs.png',
+          label: 'System Requirements',
+        },
+      ],
+    },
     {
       id: 1,
       title: 'Blind Assistive Head Tech (BAHT)',
@@ -813,7 +904,7 @@ const Projects: React.FC = () => {
     },
   ];
 
-  const categories = ['all', 'React', 'PHP', 'Java'];
+  const categories = ['all', 'Google Apps Script', 'React', 'PHP', 'Java'];
 
   const filteredProjects = projects.filter((project) =>
     activeFilter === 'all' ? true : project.category === activeFilter
@@ -905,6 +996,7 @@ const Projects: React.FC = () => {
             onOpenMediaModal={(projectId, index) => {
               setMediaModalProjectId(projectId);
               setMediaModalIndex(index);
+              setMediaModalAutoPlay(false);
               setMediaModalOpen(true);
             }}
           />
@@ -918,10 +1010,10 @@ const Projects: React.FC = () => {
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c29f74]/30 to-transparent"></div>
                 <div className="text-center px-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                    Other Featured Engineering Projects
+                    More Featured Engineering Projects
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-white/60 mt-1">
-                    Enterprise web applications, medical records management, landing pages, and CRUD systems
+                    Membership automation, enterprise web applications, medical records, landing pages, and CRUD systems
                   </p>
                 </div>
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c29f74]/30 to-transparent"></div>
@@ -982,6 +1074,7 @@ const Projects: React.FC = () => {
                                 e.stopPropagation();
                                 setMediaModalProjectId(project.id);
                                 setMediaModalIndex(0);
+                                setMediaModalAutoPlay(false);
                                 setMediaModalOpen(true);
                               }}
                               className="pointer-events-auto flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-black/60 hover:bg-black/80 text-white/90 backdrop-blur-md transition-colors cursor-pointer border border-white/15"
@@ -993,26 +1086,32 @@ const Projects: React.FC = () => {
                           )}
                         </div>
 
-                        {/* Prominent Play Button if Video Available */}
-                        {hasVideo && (
+                        {/* Prominent Play Button for Video Demos or Slideshow Galleries */}
+                        {(hasVideo || project.playGallery) && (
                           <div className="absolute inset-0 flex items-center justify-center z-10">
                             <motion.button
                               type="button"
                               whileHover={{ scale: 1.15 }}
                               whileTap={{ scale: 0.9 }}
                               onClick={() => {
-                                if (project.media && project.media.length > 0) {
+                                if (project.playGallery && !hasVideo && project.media?.length) {
+                                  setMediaModalProjectId(project.id);
+                                  setMediaModalIndex(0);
+                                  setMediaModalAutoPlay(true);
+                                  setMediaModalOpen(true);
+                                } else if (project.media && project.media.length > 0) {
                                   const vidIdx = project.media.findIndex(m => m.type === 'video');
                                   setMediaModalProjectId(project.id);
                                   setMediaModalIndex(vidIdx >= 0 ? vidIdx : 0);
+                                  setMediaModalAutoPlay(false);
                                   setMediaModalOpen(true);
                                 } else {
                                   setSelectedProject(project);
                                 }
                               }}
                               className="w-15 h-15 rounded-full bg-black/25 hover:bg-black/45 backdrop-blur-[2px] flex items-center justify-center text-white border-2 border-white/70 hover:border-[#c29f74] group-hover:scale-110 shadow-xl transition-all cursor-pointer"
-                              aria-label="Play Video Demo"
-                              title="Watch Video Demo"
+                              aria-label={hasVideo ? 'Play Video Demo' : 'Play Screenshot Slideshow'}
+                              title={hasVideo ? 'Watch Video Demo' : 'Play Screenshot Slideshow'}
                             >
                               <FiPlay size={22} className="ml-1 text-white drop-shadow-md" />
                             </motion.button>
@@ -1026,7 +1125,7 @@ const Projects: React.FC = () => {
                           {/* Project Index Eyebrow */}
                           <div className="flex items-center gap-3 mb-3">
                             <span className="text-xs uppercase tracking-wider font-bold text-[#b88755] dark:text-[#dfbe95]">
-                              Project 0{index + 2}
+                              Project 0{index + 1}
                             </span>
                             <div className="h-px flex-1 bg-gradient-to-r from-[#c29f74]/30 to-transparent"></div>
                           </div>
@@ -1148,6 +1247,7 @@ const Projects: React.FC = () => {
             </motion.div>
           </div>
         )}
+
       </div>
 
       {/* Project Modal */}
@@ -1323,7 +1423,11 @@ const Projects: React.FC = () => {
           isOpen={mediaModalOpen}
           media={filteredProjects.find(p => p.id === mediaModalProjectId)?.media || []}
           currentIndex={mediaModalIndex}
-          onClose={() => setMediaModalOpen(false)}
+          autoPlay={mediaModalAutoPlay}
+          onClose={() => {
+            setMediaModalOpen(false);
+            setMediaModalAutoPlay(false);
+          }}
           onPrev={() => {
             setMediaModalIndex((prev) => {
               const max = filteredProjects.find(p => p.id === mediaModalProjectId)?.media?.length || 1;
