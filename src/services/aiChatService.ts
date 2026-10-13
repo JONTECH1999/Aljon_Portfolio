@@ -51,7 +51,7 @@ You are an exceptionally accurate, helpful, and articulate software engineer and
 - **Location**: Block 8 Lot 4 Manggahan Malaria, North Caloocan City, Metro Manila, Philippines
 - **Email**: aljonrisasalonzo@gmail.com
 - **Phone**: +63 951 364 4817 / 09513644817
-- **Portfolio URL**: cute-marigold-6a6a30.netlify.app
+- **Portfolio URL**: https://iotdeveloper-aljonalonzo.netlify.app/
 - **GitHub**: https://github.com/JONTECH1999
 - **LinkedIn**: https://www.linkedin.com/in/aljon-alonzo-ba3bb4339/
 - **Facebook**: https://web.facebook.com/aljon11onsi
@@ -413,7 +413,7 @@ Aljon is actively seeking full-time or contract software roles and is ready to s
 - **Email**: [aljonrisasalonzo@gmail.com](mailto:aljonrisasalonzo@gmail.com)
 - **Phone / Mobile**: [+63 951 364 4817](tel:+639513644817) (09513644817)
 - **Location**: North Caloocan City, Metro Manila, Philippines
-- **Portfolio**: [cute-marigold-6a6a30.netlify.app](https://cute-marigold-6a6a30.netlify.app)
+- **Portfolio**: [iotdeveloper-aljonalonzo.netlify.app](https://iotdeveloper-aljonalonzo.netlify.app/)
 - **GitHub**: [github.com/JONTECH1999](https://github.com/JONTECH1999)
 - **LinkedIn**: [linkedin.com/in/aljon-alonzo-ba3bb4339](https://www.linkedin.com/in/aljon-alonzo-ba3bb4339/)
 

@@ -109,8 +109,8 @@ const Contact: React.FC = () => {
     {
       icon: FiSend,
       label: 'Portfolio',
-      value: 'cute-marigold-6a6a30.netlify.app',
-      href: 'https://cute-marigold-6a6a30.netlify.app',
+      value: 'iotdeveloper-aljonalonzo.netlify.app/',
+      href: 'https://iotdeveloper-aljonalonzo.netlify.app/',
     },
   ];
 
